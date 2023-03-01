@@ -332,6 +332,54 @@ img {
   cursor: default;
   margin: 0 4px;
 }
+
+
+.main-screen .chat-box {
+  padding: 10px;
+  max-width: 300px;
+  width: 100%;
+  border: 1px solid #4bd08b;
+  border-radius: 10px;
+  box-shadow: 0 4px 100px 20px rgba(0, 0, 0, 0.32);
+  background-color: rgba(0, 0, 0, 0.7019607843);
+  position: fixed;
+  z-index: 2;
+  bottom: 170px;
+  left: 20px;
+}
+.main-screen .chat-box .chat-bubble {
+  border: 1px solid #4bd08b;
+  border-radius: 4px;
+  color: #fff;
+  background: rgba(75, 208, 139, 0.231372549);
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 4px;
+}
+.main-screen .chat-box .chat-input {
+  border-top: 1px solid #4bd08b;
+  padding-top: 10px;
+}
+.main-screen .chat-box .chat-input input {
+  color: #4bd08b;
+  background: transparent;
+  border: 0;
+  font-size: 14px;
+}
+.main-screen .chat-box .back-arrow, .main-screen .chat-box .sync-icon {
+  position: absolute;
+  cursor: pointer;
+  top: 33px;
+  right: -36px;
+  width: 30px;
+}
+.main-screen .chat-box .sync-icon {
+  top: 8px;
+  width: 20px;
+  right: -30px;
+}
+
+
 .main-screen .bot-popup {
   width: 0;
   position: absolute;
@@ -1038,6 +1086,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.main-screen .tour-marker .hightlight-box {
+  width: 200px;
+}
+.main-screen .tour-marker .hightlight-box img {
+  max-width: 100%;
 }
 .main-screen .player .player-control .play-btn .pause {
   display: none;

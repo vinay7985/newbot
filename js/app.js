@@ -9,17 +9,65 @@ mainSection.classList = 'main-screen';
 mainSection.id = 'wiyse';
 
 //var divElement = document.evaluate('//*[@id="widget-top_stats"]/div[2]/div[2]/div', document, null, 0, null);
-const apiUrl = "https://localhost:5000/api/fundamentals"
+//const apiUrl = "https://localhost:5000/api/fundamentals"
+// var configData = {};
+// fetch('http://localhost:5000/api/v1/fundamentals/config')
+//  .then(response => response.json())
+//  .then(data => data.fundamentals.forEach(function (element, index) {
+//   //configData.push(element.id);
+//   console.log(element.id);
+//   //console.log(element.title);
+// }))
+//   .catch(error => console.error(error));
+//{'1':'here is question', "2":}
+function handleData(params) {
+  let configData = [];
+  console.log(params.fundamentals);
+  params.fundamentals.forEach(e => {
+    let id = e.id;
+    let title= e.title;
+    let obj = {id:id, title: title};
+    configData.push(obj);
+  });
+  return configData;
+  //console.log(configData);
+}
 
-const dummy =
-    [{ id: 1, question: "What is Sales?" }, { id: 2, question: "Describe Sales?" }, { id: 3, question: "How is Sales used ?" },{ id: 4, question: "this is Sales?" }];
+async function fetchData() {
+  try {
+    const response = await fetch('http://localhost:5000/api/v1/fundamentals/config');
+    const data = await response.json();
+     return handleData(data);
+     //callb=(handleData(data));
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function getData() {
+  const data = await fetchData();
+  return data;
+}
+
+
+
+
+
+
+// const dummy =
+//     [{ id: 1, question: "What is Sales?" }, { id: 2, question: "Describe Sales?" }, { id: 3, question: "How is Sales used ?" },{ id: 4, question: "this is Sales?" }];
 
 let intro = '';
-dummy.forEach(function (element, index) {
+ //let realData=fetchData().then(data => console.log(data));
+// console.log(realData);
+const realData = getData();
+realData.then(data => data.forEach(function (element, index) {
+
+//dummy.forEach(function (element, index) {
 
 
                     let ulBenifits = `   <li>
-                    <div class="count">${index+1}</div> ${element.question}
+                    <div class="count">${index+1}</div> ${element.title}
                     <div class="module-select">
                       <img src="http://localhost/newbot/images/icons/double-arrow.png">
                     </div>
@@ -30,7 +78,7 @@ dummy.forEach(function (element, index) {
 
                     intro += ulBenifits;
 
-             });
+             }));
 function introhover(e) {
   e.childNodes[1].classList.remove("hide");
   e.childNodes[3].classList.remove("hide");
@@ -71,14 +119,25 @@ html += `  <div class="floating-bot">
     <img src="http://localhost/newbot/images/icons/back-arrow.png" class="back-arrow"/>
   </div>
   </div>`;
+
+  html +=`<div class="chat-box">
+  <div class="chat-bubble">
+    What is the meaning of invoice? Also show me how to create one.
+  </div>
+  <div class="chat-input">
+    <input placeholder="Enter your question or task"/>
+  </div>
+  <img src="http://localhost/newbot/images/icons/back-arrow.png" class="back-arrow"/>
+  <img src="http://localhost/newbot/images/icons/sync-icon.png" class="sync-icon"/>
+</div>`;
 fetch('http://localhost:5000/api/v1/fundamentals/tab_step')
   .then(response => response.json())
   .then(data => data.forEach(function (element, index) {
-  console.log(element.xpath);
+  //console.log(element.xpath);
   let ele=getElementByXpath(element.xpath);
   
   if (ele!=null) {
-    console.log(ele);
+    //console.log(ele);
     var rect = ele.getBoundingClientRect();
      html += `<div class="tour-markers">
     <div class="tour-marker" style=" position: absolute; bottom: ${rect.bottom}px;
@@ -99,7 +158,7 @@ fetch('http://localhost:5000/api/v1/fundamentals/tab_step')
       </div>
     </div>
     </div>`;
-    console.log(html);
+    //console.log(html);
     
   }
   
