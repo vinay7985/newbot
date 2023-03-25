@@ -119,14 +119,14 @@ body, html {
   color: #333;
 }
 
-.container {
+.wiyse-container {
   max-width: 1180px;
   margin: auto;
   width: 100%;
   padding: 0 10px;
 }
 
-.overflow-h {
+.wiyse-overflow-h {
   overflow: hidden;
 }
 
@@ -137,38 +137,38 @@ section {
   align-items: center;
 }
 
-ul {
+.wiyse-ul {
   list-style: none;
   padding: 0;
 }
 
-a {
+.wiyse-a {
   text-decoration: none;
   color: inherit;
 }
 
-h1 {
+.wiyse-h1 {
   font-size: 4.2rem;
   color: #fff;
   text-shadow: 4px 3px 0px #303030;
 }
 
-h2 {
+.wiyse-h2 {
   font-size: 3.6rem;
   color: #fff;
   text-shadow: 4px 3px 0px #303030;
 }
 
-h3 {
+.wiyse-h3 {
   font-size: 2rem;
   max-width: 984px;
   margin: 40px auto;
 }
-h3.big {
+.wiyse-h3.big {
   font-size: 2.4rem;
 }
 
-.btn {
+.wiyse-btn {
   cursor: pointer;
   height: 40px;
   min-width: 160px;
@@ -178,53 +178,53 @@ h3.big {
   border: none;
   color: #fff;
 }
-.btn.outline {
+.wiyse-btn.outline {
   border: 1px solid #fff;
   color: #fff;
   background: transparent;
 }
-.btn.big-btn {
+.wiyse-btn.big-btn {
   font-size: 1.6rem;
   min-width: 200px;
   height: 50px;
   font-weight: 600;
   margin: 4px;
 }
-.btn.small-btn {
+.wiyse-btn.small-btn {
   min-width: 100px;
   height: 30px;
   margin: 4px;
 }
 
-.text-center {
+.wiyse-text-center {
   text-align: center;
 }
 
-.flex {
+.wiyse-flex {
   display: flex;
 }
-.flex.space-between {
+.wiyse-flex.wiyse-space-between {
   justify-content: space-between;
 }
-.flex.vcenter {
+.wiyse-flex.wiyse-vcenter {
   align-items: center;
 }
-.flex.vbottom {
+.wiyse-flex.wiyse-vbottom {
   align-items: flex-end;
 }
-.flex.hcenter {
+.wiyse-flex.wiyse-hcenter {
   justify-content: center;
 }
 
-.full-width {
+.wiyse-full-width {
   width: 100%;
 }
 
-.flex-wrap {
+.wiyse-flex-wrap {
   flex-wrap: wrap;
 }
 
-.row {
+.wiyse-row {
   display: flex;
   flex-wrap: wrap;
 }
@@ -233,29 +233,29 @@ img {
   max-width: 100%;
 }
 
-.no-wrap {
+.wiyse-no-wrap {
   flex-wrap: nowrap;
 }
 
-.column {
+.wiyse-column {
   flex-direction: column;
 }
 
-.hide {
+.wiyse-hide {
   display: none;
 }
 
-.show {
+.wiyse-show {
   display: block;
 }
 
 /* Custom CSS */
-.main-screen {
+.wiyse-main-screen {
   
   
   font-family: "Digital-7";
 }
-.main-screen:after {
+.wiyse-main-screen:after {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -263,7 +263,7 @@ img {
   background: rgba(0, 0, 0, 0.5019607843);
   z-index: 1;
 }
-.main-screen .floating-bot {
+.wiyse-main-screen .floating-bot {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -275,7 +275,7 @@ img {
   box-shadow: 0 0px 10px 6px #2c4e3c inset, 0 0px 10px 5px #4bd08b;
   z-index: 2;
 }
-.main-screen .floating-bot .mic {
+.wiyse-main-screen .floating-bot .mic {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -288,30 +288,30 @@ img {
   justify-content: center;
   align-items: center;
 }
-.main-screen .floating-bot .mic img {
+.wiyse-main-screen .floating-bot .mic img {
   width: 40px;
   filter: saturate(0.5);
 }
-.main-screen .floating-bot .mic img:nth-of-type(1) {
+.wiyse-main-screen .floating-bot .mic img:nth-of-type(1) {
   display: flex;
 }
-.main-screen .floating-bot .mic img:nth-of-type(2) {
+.wiyse-main-screen .floating-bot .mic img:nth-of-type(2) {
   display: none;
 }
-.main-screen .floating-bot .mic.open img:nth-of-type(1) {
+.wiyse-main-screen .floating-bot .mic.open img:nth-of-type(1) {
   display: none;
 }
-.main-screen .floating-bot .mic.open img:nth-of-type(2) {
+.wiyse-main-screen .floating-bot .mic.open img:nth-of-type(2) {
   display: flex;
 }
-.main-screen .floating-bot .mic.active {
+.wiyse-main-screen .floating-bot .mic.active {
   border: 2px solid #4bd08b;
   box-shadow: 0 0 10px 3px #4bd08b;
 }
-.main-screen .floating-bot .mic.active .mic-icon {
+.wiyse-main-screen .floating-bot .mic.active .mic-icon {
   filter: saturate(2);
 }
-.main-screen .floating-bot .breadcrumb {
+.wiyse-main-screen .floating-bot .breadcrumb {
   display: flex;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.7019607843);
@@ -321,20 +321,20 @@ img {
   cursor: default;
   font-size: 18px;
 }
-.main-screen .floating-bot .breadcrumb a {
+.wiyse-main-screen .floating-bot .breadcrumb a {
   color: #4bd08b;
 }
-.main-screen .floating-bot .breadcrumb span {
+.wiyse-main-screen .floating-bot .breadcrumb span {
   white-space: nowrap;
   cursor: pointer;
 }
-.main-screen .floating-bot .breadcrumb span.arrow {
+.wiyse-main-screen .floating-bot .breadcrumb span.arrow {
   cursor: default;
   margin: 0 4px;
 }
 
 
-.main-screen .chat-box {
+.wiyse-main-screen .chat-box {
   padding: 10px;
   max-width: 300px;
   width: 100%;
@@ -344,10 +344,10 @@ img {
   background-color: rgba(0, 0, 0, 0.7019607843);
   position: fixed;
   z-index: 2;
-  bottom: 170px;
-  left: 20px;
+  bottom: 9px;
+  left: 105px;
 }
-.main-screen .chat-box .chat-bubble {
+.wiyse-main-screen .chat-box .chat-bubble {
   border: 1px solid #4bd08b;
   border-radius: 4px;
   color: #fff;
@@ -356,31 +356,31 @@ img {
   margin-bottom: 10px;
   padding: 4px;
 }
-.main-screen .chat-box .chat-input {
+.wiyse-main-screen .chat-box .chat-input {
   border-top: 1px solid #4bd08b;
   padding-top: 10px;
 }
-.main-screen .chat-box .chat-input input {
+.wiyse-main-screen .chat-box .chat-input input {
   color: #4bd08b;
   background: transparent;
   border: 0;
   font-size: 14px;
 }
-.main-screen .chat-box .back-arrow, .main-screen .chat-box .sync-icon {
+.wiyse-main-screen .chat-box .back-arrow, .wiyse-main-screen .chat-box .sync-icon {
   position: absolute;
   cursor: pointer;
   top: 33px;
   right: -36px;
   width: 30px;
 }
-.main-screen .chat-box .sync-icon {
+.wiyse-main-screen .chat-box .sync-icon {
   top: 8px;
   width: 20px;
   right: -30px;
 }
 
 
-.main-screen .bot-popup {
+.wiyse-main-screen .bot-popup {
   width: 0;
   position: absolute;
   height: 64px;
@@ -397,14 +397,14 @@ img {
   border-radius: 10px;
   border-left: 0;
 }
-.main-screen .bot-popup.open {
+.wiyse-main-screen .bot-popup.open {
   bottom: 10px;
   left: 64px;
   opacity: 1;
   visibility: visible;
   width: 250px;
 }
-.main-screen .bot-popup input {
+.wiyse-main-screen .bot-popup input {
   width: 100%;
   height: 100%;
   padding: 0 20px 0 30px;
@@ -415,15 +415,15 @@ img {
   font-size: 16px;
   border-radius: 10px;
 }
-.main-screen .bot-popup ::-webkit-input-placeholder, .main-screen .bot-popup ::placeholder {
+.wiyse-main-screen .bot-popup ::-webkit-input-placeholder, .wiyse-main-screen .bot-popup ::placeholder {
   color: #4bd08b;
 }
-.main-screen .bot-popup .back-arrow {
+.wiyse-main-screen .bot-popup .back-arrow {
   position: absolute;
   cursor: pointer;
   top: 13px;
 }
-.main-screen .text-window {
+.wiyse-main-screen .text-window {
   display: none;
   position: fixed;
   left: 50%;
@@ -436,12 +436,12 @@ img {
   transition: 0.4s all ease;
   z-index: 2;
 }
-.main-screen .text-window .left-handle {
+.wiyse-main-screen .text-window .left-handle {
   position: relative;
   padding-left: 7px;
   height: 117px;
 }
-.main-screen .text-window .left-handle:before {
+.wiyse-main-screen .text-window .left-handle:before {
   content: "";
   height: 117px;
   width: 7px;
@@ -449,16 +449,16 @@ img {
   position: absolute;
   left: 0;
 }
-.main-screen .text-window .left-handle img {
+.wiyse-main-screen .text-window .left-handle img {
   height: 117px;
   width: 0px;
 }
-.main-screen .text-window .right-handle {
+.wiyse-main-screen .text-window .right-handle {
   position: relative;
   padding-right: 7px;
   height: 117px;
 }
-.main-screen .text-window .right-handle:before {
+.wiyse-main-screen .text-window .right-handle:before {
   content: "";
   height: 117px;
   width: 7px;
@@ -466,11 +466,11 @@ img {
   position: absolute;
   right: 0;
 }
-.main-screen .text-window .right-handle img {
+.wiyse-main-screen .text-window .right-handle img {
   height: 117px;
   width: 0px;
 }
-.main-screen .text-window .window {
+.wiyse-main-screen .text-window .window {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -483,7 +483,7 @@ img {
   position: relative;
   font-family: "Digital-7";
 }
-.main-screen .text-window .window:after {
+.wiyse-main-screen .text-window .window:after {
   position: absolute;
   content: "";
   border: 1px solid #4bd08b;
@@ -492,32 +492,32 @@ img {
   height: 103px;
   background: rgba(75, 208, 139, 0.1490196078);
 }
-.main-screen .text-window .window span {
+.wiyse-main-screen .text-window .window span {
   width: 0;
   overflow: hidden;
   white-space: nowrap;
   transition: 0.4s all ease;
   text-align: center;
 }
-.main-screen .text-window.open .left-handle img {
+.wiyse-main-screen .text-window.open .left-handle img {
   width: 25px;
 }
-.main-screen .text-window.open .right-handle img {
+.wiyse-main-screen .text-window.open .right-handle img {
   width: 25px;
 }
-.main-screen .text-window.open .window {
+.wiyse-main-screen .text-window.open .window {
   border-width: 1px 0 1px;
 }
-.main-screen .text-window.open .window:after {
+.wiyse-main-screen .text-window.open .window:after {
   border-width: 1px 0 1px;
 }
-.main-screen .text-window.open .window span {
+.wiyse-main-screen .text-window.open .window span {
   width: 220px;
 }
-.main-screen .text-window.active {
+.wiyse-main-screen .text-window.active {
   display: flex;
 }
-.main-screen .demo-mode {
+.wiyse-main-screen .demo-mode {
   position: fixed;
   width: 300px;
   bottom: 20px;
@@ -528,35 +528,35 @@ img {
   color: #1dad46;
   z-index: 2;
 }
-.main-screen .demo-mode .slider {
+.wiyse-main-screen .demo-mode .slider {
   width: 100%;
   text-align: center;
   margin-bottom: 0;
 }
-.main-screen .demo-mode .slider .slick-list {
+.wiyse-main-screen .demo-mode .slider .slick-list {
   padding: 0 10px !important;
 }
-.main-screen .demo-mode .slider .slick-slide {
+.wiyse-main-screen .demo-mode .slider .slick-slide {
   font-size: 16px;
   transform: scale(0.7);
   transition: 0.4s all ease;
 }
-.main-screen .demo-mode .slider .slick-slide > div img {
+.wiyse-main-screen .demo-mode .slider .slick-slide > div img {
   margin: 20px auto 0;
   height: 40px;
 }
-.main-screen .demo-mode .slider .slick-slide.slick-current {
+.wiyse-main-screen .demo-mode .slider .slick-slide.slick-current {
   color: #4bd08b;
   font-weight: bold;
   transform: scale(1);
 }
-.main-screen .demo-mode .slider .slick-slide.slick-current img {
+.wiyse-main-screen .demo-mode .slider .slick-slide.slick-current img {
   filter: brightness(1.8) drop-shadow(0px 0px 5px #4bd08b) hue-rotate(28deg);
 }
-.main-screen .demo-mode .slider .slick-slide:nth-of-type(1) > div {
+.wiyse-main-screen .demo-mode .slider .slick-slide:nth-of-type(1) > div {
   padding: 0 0px;
 }
-.main-screen .demo-mode .slider .slick-prev {
+.wiyse-main-screen .demo-mode .slider .slick-prev {
   left: 30%;
   z-index: 9;
   width: 20px;
@@ -565,10 +565,10 @@ img {
   background-size: cover;
   transform: rotate(180deg) translate(0%, 9px);
 }
-.main-screen .demo-mode .slider .slick-prev:before {
+.wiyse-main-screen .demo-mode .slider .slick-prev:before {
   content: "";
 }
-.main-screen .demo-mode .slider .slick-next {
+.wiyse-main-screen .demo-mode .slider .slick-next {
   right: 30%;
   z-index: 9;
   width: 20px;
@@ -576,30 +576,30 @@ img {
   background: url(../images/icons/tour-arrow.png) center center;
   background-size: cover;
 }
-.main-screen .demo-mode .slider .slick-next:before {
+.wiyse-main-screen .demo-mode .slider .slick-next:before {
   content: "";
 }
-.main-screen .demo-mode .slider .slick-prev:before, .main-screen .demo-mode .slider .slick-next:before {
+.wiyse-main-screen .demo-mode .slider .slick-prev:before, .wiyse-main-screen .demo-mode .slider .slick-next:before {
   color: #4bd08b;
 }
-.main-screen .demo-mode .platform {
+.wiyse-main-screen .demo-mode .platform {
   text-align: center;
   margin-top: -20px;
 }
-.main-screen .demo-mode .toggle-switch {
+.wiyse-main-screen .demo-mode .toggle-switch {
   display: flex;
   justify-content: center;
   margin: 10px;
 }
-.main-screen .demo-mode .toggle-switch .on, .main-screen .demo-mode .toggle-switch .off {
+.wiyse-main-screen .demo-mode .toggle-switch .on, .wiyse-main-screen .demo-mode .toggle-switch .off {
   width: 100px;
 }
-.main-screen .demo-mode .toggle-switch .off {
+.wiyse-main-screen .demo-mode .toggle-switch .off {
   color: #4bd08b;
   text-align: right;
   font-weight: bold;
 }
-.main-screen .demo-mode .toggle-switch .toggle {
+.wiyse-main-screen .demo-mode .toggle-switch .toggle {
   width: 40px;
   height: 20px;
   border-radius: 20px;
@@ -607,7 +607,7 @@ img {
   position: relative;
   margin: 0 10px;
 }
-.main-screen .demo-mode .toggle-switch .toggle span {
+.wiyse-main-screen .demo-mode .toggle-switch .toggle span {
   position: absolute;
   height: 16px;
   width: 16px;
@@ -617,21 +617,21 @@ img {
   left: 1px;
   transition: 0.4s all ease;
 }
-.main-screen .demo-mode .toggle-switch.on .on {
+.wiyse-main-screen .demo-mode .toggle-switch.on .on {
   color: #4bd08b;
   font-weight: bold;
 }
-.main-screen .demo-mode .toggle-switch.on .off {
+.wiyse-main-screen .demo-mode .toggle-switch.on .off {
   color: unset;
   font-weight: normal;
 }
-.main-screen .demo-mode .toggle-switch.on .toggle span {
+.wiyse-main-screen .demo-mode .toggle-switch.on .toggle span {
   left: 21px;
 }
-.main-screen .demo-mode .mode.slider {
+.wiyse-main-screen .demo-mode .mode.slider {
   margin: 16px auto;
 }
-.main-screen .demo-mode .mode.slider .slick-slide p {
+.wiyse-main-screen .demo-mode .mode.slider .slick-slide p {
   overflow: hidden;
   width: 6px;
   height: 6px;
@@ -640,37 +640,37 @@ img {
   margin: -13px auto 0;
   white-space: nowrap;
 }
-.main-screen .demo-mode .mode.slider .slick-slide.slick-current p {
+.wiyse-main-screen .demo-mode .mode.slider .slick-slide.slick-current p {
   overflow: unset;
   width: unset;
   height: unset;
   border-radius: 0;
   background: unset;
 }
-.main-screen .demo-mode .mode.slider .slick-next {
+.wiyse-main-screen .demo-mode .mode.slider .slick-next {
   right: 25%;
   width: 16px;
   height: 16px;
 }
-.main-screen .demo-mode .mode.slider .slick-prev {
+.wiyse-main-screen .demo-mode .mode.slider .slick-prev {
   left: 25%;
   width: 16px;
   height: 16px;
 }
-.main-screen .demo-mode .minimize-icon, .main-screen .demo-mode .cross-icon {
+.wiyse-main-screen .demo-mode .minimize-icon, .wiyse-main-screen .demo-mode .cross-icon {
   width: 20px;
   position: absolute;
   bottom: 20px;
   cursor: pointer;
   z-index: 1;
 }
-.main-screen .demo-mode .minimize-icon {
+.wiyse-main-screen .demo-mode .minimize-icon {
   left: 10px;
 }
-.main-screen .demo-mode .cross-icon {
+.wiyse-main-screen .demo-mode .cross-icon {
   right: 10px;
 }
-.main-screen .demo-mode .play-circle {
+.wiyse-main-screen .demo-mode .play-circle {
   position: absolute;
   width: 60px;
   height: 60px;
@@ -684,28 +684,28 @@ img {
   justify-content: center;
   cursor: pointer;
 }
-.main-screen .demo-mode .play-circle img {
+.wiyse-main-screen .demo-mode .play-circle img {
   width: 28px;
 }
-.main-screen .demo-mode .play-circle img.pause {
+.wiyse-main-screen .demo-mode .play-circle img.pause {
   display: none;
 }
-.main-screen .demo-mode .play-circle img.play {
+.wiyse-main-screen .demo-mode .play-circle img.play {
   display: inline-block;
 }
-.main-screen .tour-marker {
+.wiyse-main-screen .tour-marker {
   display: flex;
   z-index: 2;
   position: fixed;
 }
-.main-screen .tour-marker .marker-dot {
+.wiyse-main-screen .tour-marker .marker-dot {
   position: relative;
   width: 25px;
   height: 25px;
   border-radius: 50%;
   box-shadow: 0 0 2px 2px #4bd08b inset;
 }
-.main-screen .tour-marker .marker-dot:after {
+.wiyse-main-screen .tour-marker .marker-dot:after {
   position: absolute;
   top: 11px;
   height: 1px;
@@ -713,29 +713,32 @@ img {
   background: #4bd08b;
   left: 13px;
 }
-.main-screen .tour-marker .marker {
+.wiyse-main-screen .tour-marker .marker {
   margin: 0 20px;
 }
-.main-screen .tour-marker .marker img {
+.wiyse-main-screen .tour-marker .marker img {
   height: 25px;
   min-width: 134px;
 }
-.main-screen .tour-marker .arrow {
-  margin-top: 2px;
+.wiyse-main-screen .tour-marker .arrow {
+  margin-top: -8px;
   cursor: pointer;
   position: relative;
 }
-.main-screen .tour-marker .arrow:hover .tour-intro {
+.wiyse-main-screen .tour-marker .arrow:hover .tour-intro {
   display: block;
 }
-.main-screen .tour-marker .arrow > img {
+.wiyse-main-screen .tour-marker .arrow > img {
   width: 30px;
+  max-width: 40%;
+ 
+  
 }
-.main-screen .tour-marker:nth-of-type(1) {
+.wiyse-main-screen .tour-marker:nth-of-type(1) {
   top: 105px;
   left: 129px;
 }
-.main-screen .tour-marker .tour-intro {
+.wiyse-main-screen .tour-marker .tour-intro {
   position: absolute;
   display: none;
   width: 178px;
@@ -743,113 +746,113 @@ img {
   left: 30px;
   background: rgba(0, 0, 0, 0.7490196078);
 }
-.main-screen .tour-marker .tour-intro h3 {
+.wiyse-main-screen .tour-marker .tour-intro .wiyse-h5 {
   color: #4bd08b;
   position: absolute;
   left: 60px;
   top: 20px;
   margin: 0;
 }
-.main-screen .tour-marker .tour-intro .step-1, .main-screen .tour-marker .tour-intro .step-2 {
+.wiyse-main-screen .tour-marker .tour-intro .step-1, .wiyse-main-screen .tour-marker .tour-intro .step-2 {
   display: none;
   background: rgba(0, 0, 0, 0.7490196078);
 }
-.main-screen .tour-marker .tour-intro .step-1 {
+.wiyse-main-screen .tour-marker .tour-intro .step-1 {
   position: absolute;
   left: 178px;
   top: 33px;
 }
-.main-screen .tour-marker .tour-intro .step-1 .list {
+.wiyse-main-screen .tour-marker .tour-intro .step-1 .list {
   margin-left: 96px;
   margin-left: 49px;
   width: 254px;
   margin-top: -10px;
   position: relative;
 }
-.main-screen .tour-marker .tour-intro .step-1 .list p {
+.wiyse-main-screen .tour-marker .tour-intro .step-1 .list p {
   position: absolute;
   top: 4px;
   left: 85px;
   color: #333;
 }
-.main-screen .tour-marker .tour-intro .step-1 .list:nth-of-type(1) {
+.wiyse-main-screen .tour-marker .tour-intro .step-1 .list:nth-of-type(1) {
   width: 323px;
   margin-left: 0;
   margin-top: 0;
 }
-.main-screen .tour-marker .tour-intro .step-1 .list:nth-of-type(1) p {
+.wiyse-main-screen .tour-marker .tour-intro .step-1 .list:nth-of-type(1) p {
   top: 46px;
   left: 155px;
 }
-.main-screen .tour-marker .tour-intro .step-1 .list:nth-of-type(3) {
+.wiyse-main-screen .tour-marker .tour-intro .step-1 .list:nth-of-type(3) {
   margin-left: 123px;
   margin-left: 49px;
 }
-.main-screen .tour-marker .tour-intro .step-1 .list:hover .step-2 {
+.wiyse-main-screen .tour-marker .tour-intro .step-1 .list:hover .step-2 {
   display: block;
 }
-.main-screen .tour-marker .tour-intro .step-2 {
+.wiyse-main-screen .tour-marker .tour-intro .step-2 {
   position: absolute;
   left: 96%;
   top: 0px;
   z-index: 1;
 }
-.main-screen .tour-marker .tour-intro .step-2 .list {
+.wiyse-main-screen .tour-marker .tour-intro .step-2 .list {
   margin-left: 96px;
   margin-left: 49px;
   width: 254px;
   margin-top: -10px;
 }
-.main-screen .tour-marker .tour-intro .step-2 .list p {
+.wiyse-main-screen .tour-marker .tour-intro .step-2 .list p {
   position: absolute;
   top: 4px;
   left: 85px;
   color: #4bd08b;
 }
-.main-screen .tour-marker .tour-intro .step-2 .list:nth-of-type(1) {
+.wiyse-main-screen .tour-marker .tour-intro .step-2 .list:nth-of-type(1) {
   width: 323px;
   margin-left: 0;
   margin-top: 0;
 }
-.main-screen .tour-marker .tour-intro .step-2 .list:nth-of-type(1) p {
+.wiyse-main-screen .tour-marker .tour-intro .step-2 .list:nth-of-type(1) p {
   top: 46px;
   left: 155px;
 }
-.main-screen .tour-marker .tour-intro .step-2 .list:hover .step-2 {
+.wiyse-main-screen .tour-marker .tour-intro .step-2 .list:hover .step-2 {
   display: block;
 }
-.main-screen .tour-marker .tour-intro:hover .step-1 {
+.wiyse-main-screen .tour-marker .tour-intro:hover .step-1 {
   display: block;
 }
-.main-screen .tour-marker.module .marker {
+.wiyse-main-screen .tour-marker.module .marker {
   margin: 0;
   background: rgba(0, 0, 0, 0.7019607843);
   padding: 4px;
 }
-.main-screen .tour-marker.module .marker img {
+.wiyse-main-screen .tour-marker.module .marker img {
   width: 191px;
   height: 33px;
 }
-.main-screen .tour-marker.module .marker .module-icon {
+.wiyse-main-screen .tour-marker.module .marker .module-icon {
   width: 24px;
   min-width: auto;
   height: 24px;
   vertical-align: top;
 }
-.main-screen .tour-marker.module:nth-of-type(3) {
+.wiyse-main-screen .tour-marker.module:nth-of-type(3) {
   left: 200px;
   top: 300px;
 }
-.main-screen .tour-marker.module:nth-of-type(4) {
+.wiyse-main-screen .tour-marker.module:nth-of-type(4) {
   left: 100px;
   top: 200px;
 }
-.main-screen .tour-marker ul {
+.wiyse-main-screen .tour-marker ul {
   padding: 0 0px 0 10px;
   width: 250px;
   border-left: 1px solid #4bd08b;
 }
-.main-screen .tour-marker ul li {
+.wiyse-main-screen .tour-marker ul li {
   padding-left: 20px;
   padding-right: 30px;
   position: relative;
@@ -857,7 +860,7 @@ img {
   color: #000;
   margin: 10px 0;
 }
-.main-screen .tour-marker ul li .count {
+.wiyse-main-screen .tour-marker ul li .count {
   position: absolute;
   left: 0;
   width: 16px;
@@ -865,18 +868,18 @@ img {
   background: #4bd08b;
   text-align: center;
 }
-.main-screen .tour-marker ul li .module-select {
+.wiyse-main-screen .tour-marker ul li .module-select {
   position: absolute;
   padding-right: 10px;
   right: 0px;
   top: 0;
   background: #000;
 }
-.main-screen .tour-marker ul li .module-select img {
+.wiyse-main-screen .tour-marker ul li .module-select img {
   width: 20px;
   opacity: 0;
 }
-.main-screen .tour-marker ul li .module-select:after {
+.wiyse-main-screen .tour-marker ul li .module-select:after {
   position: absolute;
   right: 5px;
   width: 6px;
@@ -885,7 +888,7 @@ img {
   top: 30%;
   background: #4bd08b;
 }
-.main-screen .tour-marker ul li .module-select:before {
+.wiyse-main-screen .tour-marker ul li .module-select:before {
   position: absolute;
   right: 0px;
   width: 10px;
@@ -893,36 +896,36 @@ img {
   top: 41%;
   background: #4bd08b;
 }
-.main-screen .tour-marker ul li:hover > .module-select:after {
+.wiyse-main-screen .tour-marker ul li:hover > .module-select:after {
   content: "";
 }
-.main-screen .tour-marker ul li:hover > .module-select:before {
+.wiyse-main-screen .tour-marker ul li:hover > .module-select:before {
   content: "";
 }
-.main-screen .tour-marker ul li:hover > .module-select img {
+.wiyse-main-screen .tour-marker ul li:hover > .module-select img {
   opacity: 1;
 }
-.main-screen .tour-marker ul li:hover:hover > .step-2 {
+.wiyse-main-screen .tour-marker ul li:hover:hover > .step-2 {
   display: block;
 }
-.main-screen .tour-marker ul.modules-options {
+.wiyse-main-screen .tour-marker ul.modules-options {
   margin-top: 24px;
   padding-right: 4px;
 }
-.main-screen .tour-marker ul.modules-options li {
+.wiyse-main-screen .tour-marker ul.modules-options li {
   border: 1px solid #4bd08b;
   color: #4bd08b;
   background: transparent;
 }
-.main-screen .tour-marker ul.modules-options li .count {
+.wiyse-main-screen .tour-marker ul.modules-options li .count {
   background: transparent;
   border-color: #4bd08b;
 }
-.main-screen .tour-markers .demo-mode-icons {
+.wiyse-main-screen .tour-markers .demo-mode-icons {
   z-index: 2;
   position: relative;
 }
-.main-screen .tour-markers .demo-mode-icons img {
+.wiyse-main-screen .tour-markers .demo-mode-icons img {
   width: 44px;
   height: 44px;
   -o-object-fit: contain;
@@ -930,7 +933,7 @@ img {
   background-color: rgba(0, 0, 0, 0.7019607843);
   padding: 4px;
 }
-.main-screen .go-back {
+.wiyse-main-screen .go-back {
   position: fixed;
   bottom: 20px;
   left: 50%;
@@ -941,22 +944,22 @@ img {
   font-size: 18px;
   text-align: center;
 }
-.main-screen .go-back img.back-arrow {
+.wiyse-main-screen .go-back img.back-arrow {
   background-color: rgba(0, 0, 0, 0.7019607843);
   padding: 4px;
   width: 44px;
   margin-bottom: 2px;
 }
-.main-screen .go-back span {
+.wiyse-main-screen .go-back span {
   background-color: rgba(0, 0, 0, 0.7019607843);
   padding: 4px;
 }
-.main-screen .deep-tour {
+.wiyse-main-screen .deep-tour {
   position: fixed;
   width: 400px;
   bottom: 20px;
   right: 20px;
-  background: rgba(0, 0, 0, 0.7490196078);
+  background: rgba(0, 0, 0, 0);
   border-radius: 10px;
   color: #4bd08b;
   z-index: 2;
@@ -966,29 +969,29 @@ img {
   font-size: 16px;
   justify-content: space-between;
 }
-.main-screen .deep-tour .minimize-icon, .main-screen .deep-tour .cross-icon {
+.wiyse-main-screen .deep-tour .minimize-icon, .wiyse-main-screen .deep-tour .cross-icon {
   width: 20px;
   position: absolute;
   right: 20px;
   cursor: pointer;
 }
-.main-screen .deep-tour .cross-icon {
+.wiyse-main-screen .deep-tour .cross-icon {
   bottom: 20px;
 }
-.main-screen .deep-tour ul {
+.wiyse-main-screen .deep-tour ul {
   padding: 0 30px 0 10px;
   width: 180px;
   border-left: 1px solid #4bd08b;
   overflow: auto;
 }
-.main-screen .deep-tour ul li {
+.wiyse-main-screen .deep-tour ul li {
   padding-left: 20px;
   position: relative;
   background: #4bd08b;
   color: #000;
   margin-bottom: 10px;
 }
-.main-screen .deep-tour ul li .count {
+.wiyse-main-screen .deep-tour ul li .count {
   position: absolute;
   left: 0;
   width: 16px;
@@ -996,16 +999,16 @@ img {
   background: #4bd08b;
   text-align: center;
 }
-.main-screen .deep-tour ul li .module-select {
+.wiyse-main-screen .deep-tour ul li .module-select {
   position: absolute;
   padding-right: 10px;
   right: -30px;
   top: 0;
 }
-.main-screen .deep-tour ul li .module-select img {
+.wiyse-main-screen .deep-tour ul li .module-select img {
   width: 20px;
 }
-.main-screen .deep-tour ul li .module-select:after {
+.wiyse-main-screen .deep-tour ul li .module-select:after {
   content: "";
   position: absolute;
   right: 5px;
@@ -1015,7 +1018,7 @@ img {
   top: 30%;
   background: #4bd08b;
 }
-.main-screen .deep-tour ul li .module-select:before {
+.wiyse-main-screen .deep-tour ul li .module-select:before {
   content: "";
   position: absolute;
   right: 0px;
@@ -1024,60 +1027,64 @@ img {
   top: 41%;
   background: #4bd08b;
 }
-.main-screen .deep-tour ul.modules-options {
+.wiyse-main-screen .deep-tour ul.modules-options {
   margin-top: 24px;
   padding-right: 4px;
+  background: rgba(0, 0, 0, 0.7490196078);
 }
-.main-screen .deep-tour ul.modules-options li {
+.wiyse-main-screen .deep-tour ul.modules-options li {
   border: 1px solid #4bd08b;
   color: #4bd08b;
   background: transparent;
 }
-.main-screen .deep-tour ul.modules-options li .count {
+.wiyse-main-screen .deep-tour ul.modules-options li .count {
   background: transparent;
   border-color: #4bd08b;
 }
-.main-screen .player {
+.wiyse-main-screen .player {
   position: fixed;
   z-index: 2;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: 20px;
+  bottom: 40px;
 }
-.main-screen .player .breadcrumb {
+.wiyse-main-screen .player .breadcrumb {
   display: flex;
-  padding: 10px;
+  padding: 4px;
   background-color: rgba(0, 0, 0, 0.7019607843);
   position: fixed;
-  top: -40px;
+  top: -60px;
   color: #4bd08b;
   cursor: default;
   font-size: 18px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   left: 50%;
   transform: translate(-50%, 0px);
+  max-width: 550px;
+  width: 400px;
 }
-.main-screen .player .breadcrumb a {
+.wiyse-main-screen .player .breadcrumb a {
   color: #4bd08b;
 }
-.main-screen .player .breadcrumb span {
-  white-space: nowrap;
-  cursor: pointer;
+.wiyse-main-screen .player .breadcrumb span {
+  white-space: wrap;
+  
 }
-.main-screen .player .breadcrumb span.arrow {
+.wiyse-main-screen .player .breadcrumb span.arrow {
   cursor: default;
   margin: 0 4px;
 }
-.main-screen .player .player-control {
+.wiyse-main-screen .player .player-control {
   display: flex;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.7019607843);
   align-items: center;
 }
-.main-screen .player .player-control img {
+.wiyse-main-screen .player .player-control img {
   height: 30px;
   width: 30px;
 }
-.main-screen .player .player-control .play-btn {
+.wiyse-main-screen .player .player-control .play-btn {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -1087,12 +1094,143 @@ img {
   align-items: center;
   justify-content: center;
 }
-.main-screen .tour-marker .hightlight-box {
+.wiyse-main-screen .tour-marker .hightlight-box {
   width: 200px;
 }
-.main-screen .tour-marker .hightlight-box img {
+.wiyse-main-screen .tour-marker .hightlight-box img {
   max-width: 100%;
 }
-.main-screen .player .player-control .play-btn .pause {
+.wiyse-main-screen .player .player-control .play-btn .pause {
   display: none;
+}
+
+.wiyse-main-screen .tour-marker .circle-count {
+  position: relative;
+  width: 50px;
+  font-size: 20px;
+}
+.wiyse-main-screen .tour-marker .circle-count span {
+  position: absolute;
+  color: #4bd08b;
+  top: 2px;
+  left: 79%;
+  font-size: small;
+  text-align: center;
+  transform: translate(-50%, 0px);
+}
+.wiyse-main-screen .tour-marker .circle-count img {
+  
+  background-color: rgba(0, 0, 0, 0.7019607843);
+  border-radius: 50%;
+  max-width: 40%;
+  float: right;
+  
+  
+}
+.wiyse-main-screen .tour-marker .circle-count + .arrow {
+  padding-top: 8px;
+}
+
+
+
+.wiyse-main-screen .tour-marker .rect-box {
+  position: relative;
+  width: 50px;
+  font-size: 20px;
+}
+.wiyse-main-screen .tour-marker .rect-box span {
+  position: absolute;
+  color: #4bd08b;
+  top: -1px;
+  left: 40%;
+  font-size: small;
+  text-align: center;
+  transform: translate(-50%, 0px);
+}
+.wiyse-main-screen .tour-marker .rect-box img {
+  
+  background-color: rgba(0, 0, 0, 0.7019607843);
+  border-radius: 10%;
+  max-width: 120%;
+  float: right;
+  
+  
+}
+.wiyse-main-screen .tour-marker .rect-box + .arrow {
+  padding-top: 8px;
+}
+
+
+.wiyse-main-screen .tour-marker .icon-box {
+  position: relative;
+  width: 50px;
+  font-size: 20px;
+}
+.wiyse-main-screen .tour-marker .icon-box img {
+  background-color: rgba(0, 0, 0, 0.7019607843);
+  padding: 8px;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow {
+  padding-top: 8px;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro {
+  width: 30px;
+  left: 0;
+  height: 30px;
+  background: transparent;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro > img {
+  width: 0;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .modules-list {
+  padding-bottom: 10px;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .step-1 {
+  left: 30px;
+  top: -10px;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .step-2 {
+  background: transparent;
+  border: 0;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .step-2 li {
+  background: transparent;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .step-2 li .tour-intro {
+  position: relative;
+  left: -31px;
+  top: -8px;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .step-2 li .tour-intro .las {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.7490196078);
+  color: #4bd08b;
+  padding: 2px;
+  font-size: 20px;
+  top: -5px;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .step-2 li .tour-intro .las.la-check-square {
+  bottom: -5px;
+  top: auto;
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .step-2 li .tour-intro .mic-icon {
+  position: absolute;
+  width: 30px;
+  left: 50px;
+  top: 18px;
+  filter: saturate(0.5);
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .step-2 li .tour-intro .mic-icon.active {
+  filter: saturate(2);
+}
+.wiyse-main-screen .tour-marker .icon-box + .arrow > .tour-intro .add-module {
+  position: absolute;
+  bottom: -5px;
+  right: 10px;
+  cursor: pointer;
+  width: 24px;
+  background-color: rgba(0, 0, 0, 0.7019607843);
+  padding: 4px;
 }/*# sourceMappingURL=style.css.map */
