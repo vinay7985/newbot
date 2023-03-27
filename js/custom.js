@@ -1,20 +1,27 @@
 //functions
 
 
+// function introhover(e) {
+//   e.childNodes[1].classList.remove("wiyse-hide");
+//   e.childNodes[3].classList.remove("wiyse-hide");
+//   console.log();
+// }
+// function introout(e) {
+//   e.childNodes[1].classList.add("wiyse-hide");
+//   e.childNodes[3].classList.add("wiyse-hide");
+//   console.log();
+// }
+
+//
+
 function introhover(e) {
-  e.childNodes[1].classList.remove("wiyse-hide");
-  e.childNodes[3].classList.remove("wiyse-hide");
+  e.childNodes[1].classList.add("circle");
+  
   console.log();
-
-
 }
-function introout(e) {
-  e.childNodes[1].classList.add("wiyse-hide");
-  e.childNodes[3].classList.add("wiyse-hide");
-  console.log();
 
 
-}
+//
 
 function getElementByXpath(path) {
   return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -182,7 +189,8 @@ chatbox_div.style.display='none';
                     What is the meaning of invoice? Also show me how to create one.
                 </div>
                 <div class="chat-input" >
-                    <input placeholder="Enter your question or task"  id="texchat2" type="text"  />
+                    <input placeholder="Enter your question or task    "  id="texchat2" type="text"/>
+                    
                 </div>
                 <img src="https://www.wiyse.com/kushagra/newbot/images/icons/back-arrow.png" class="back-arrow"/>
                 <img src="https://www.wiyse.com/kushagra/newbot/images/icons/sync-icon.png" class="sync-icon"/>
@@ -293,12 +301,18 @@ chatbox_div.style.display='none';
   let newUrl= myUrl.replace("kushagra", "vinay");
   let href9 = newUrl+window.location.search;
   let i =1;
+
+  const formData = new FormData();
+  formData.append('href', href9);
   
-  fetch('https://www.wiyse.com/rajesh/api/functionalities/get_location')
+  fetch('https://www.wiyse.com/rajesh/api/functionalities/get_location',{
+    method: 'POST',
+    body: formData
+  })
     .then(response => response.json())
     .then(data => data.forEach(function (element, index) {
-      //console.log(element.href);
-      if (element.href === href9) {
+      console.log(data);
+      if (element.href === '/vinay/admin/invoices/invoice' || element.href === '/vinay/admin/invoices'|| element.href === '/vinay/admin/proposals/proposal' || element.href === '/vinay/admin/proposals'||element.href === '/vinay/admin/estimates/estimate' || element.href === '/vinay/admin/estimates'|| element.href === '/vinay/admin/credit_notes/credit_note' || element.href === '/vinay/admin/credit_notes'|| element.href === '/vinay/admin/invoice_items') {
         //console.log(href9);
         if (i==1) {
           let rintro='';
@@ -400,7 +414,7 @@ chatbox_div.style.display='none';
         left: ${rect.left}px;
         right: ${rect.right}px;
         top: ${rect.top-18}px;
-        width: ${rect.width}px;" onmouseover= "introhover(this);" onmouseout= "introout(this);" >
+        width: ${rect.width}px;" onmouseover= "introhover(this);" >
         <div class="circle-count">
               <span>${i}</span>
               <img src="https://www.wiyse.com/kushagra/newbot/images/icons/playcircle.png"/>
