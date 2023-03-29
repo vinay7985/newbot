@@ -261,7 +261,7 @@ img {
   width: 100%;
   height: 100%;
   content: "";
-  background: rgba(0, 0, 0, 0.4019607843);
+  background: rgba(0, 0, 0, 0.5019607843);
   z-index: 1;
   pointer-events: none;
 }
@@ -737,8 +737,8 @@ img {
   
 }
 .wiyse-main-screen .tour-marker:nth-of-type(1) {
-  top: 105px;
-  left: 129px;
+  top: 95px;
+  left: 612px;
 }
 .wiyse-main-screen .tour-marker .tour-intro {
   position: absolute;
@@ -993,6 +993,9 @@ img {
   color: #000;
   margin-bottom: 10px;
 }
+
+
+
 .wiyse-main-screen .deep-tour ul li .count {
   position: absolute;
   left: 0;
@@ -1078,17 +1081,17 @@ img {
 }
 .wiyse-main-screen .player .player-control {
   display: flex;
-  padding: 10px;
+  padding: 0px;
   background-color: rgba(0, 0, 0, 0.7019607843);
   align-items: center;
 }
 .wiyse-main-screen .player .player-control img {
-  height: 30px;
-  width: 30px;
+  height: 17px;
+  width: 27px;
 }
 .wiyse-main-screen .player .player-control .play-btn {
-  width: 60px;
-  height: 60px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: url(../images/icons/playcircle.png);
   background-size: cover;
@@ -1097,7 +1100,7 @@ img {
   justify-content: center;
 }
 .wiyse-main-screen .tour-marker .hightlight-box {
-  width: 200px;
+  width: 171px;
 }
 .wiyse-main-screen .tour-marker .hightlight-box img {
   max-width: 100%;
@@ -1241,3 +1244,8 @@ img {
   background-color: rgba(0, 0, 0, 0.7019607843);
   padding: 4px;
 }/*# sourceMappingURL=style.css.map */
+
+.green-highlite{
+  background: #4bd08b !important;
+    color: #000 !important;
+}

@@ -147,9 +147,17 @@ navbox_div.classList = 'player';
 navbox_div.id = 'player';
 
 var navbox_html =`<div class="breadcrumb">
-<h5><span>Lets check Out The Basic Steps for creating a new invoice</span></h5>
+<h5><span id="response">Lets check Out The Basic Steps for creating a new invoice</span></h5>
 
-</div>`;
+</div>
+<div class="player-control">
+        <img src="https://www.wiyse.com/kushagra/newbot/images/icons/back-arrow.png">
+        <div class="play-btn">
+          <img src="https://www.wiyse.com/kushagra/newbot/images/icons/play.png" class="play"/>
+          <img src="https://www.wiyse.com/kushagra/newbot/images/icons/pause.png" class="pause"/>
+        </div>
+        <img src="https://www.wiyse.com/kushagra/newbot/images/icons/double-arrow.png">
+      </div>`;
 navbox_div.innerHTML = navbox_html;
            
 sectionEle.appendChild(navbox_div);
@@ -163,12 +171,12 @@ tour_div.classList = 'deep-tour';
 tour_div.id = 'tour';
 
 var tour_html =`<ul class="modules-options">
-<li><div class="count">1</div> Key Workflows</li>
-<li><div class="count">2</div> Key features</li>
-<li><div class="count">3</div> Key Benefits</li>
-<li><div class="count">4</div> Use cases</li>
-<li><div class="count">5</div> Key Workflows</li>
-<li><div class="count">6</div> Key features</li>
+<li><div class="count">1</div> Proposals</li>
+<li><div class="count">2</div> Estimates</li>
+<li class="green-highlite"><div class="count">3</div> Invoice</li>
+<li><div class="count">4</div> Payments</li>
+<li><div class="count">5</div> Credit Notes</li>
+<li><div class="count">6</div> Items</li>
 <li><div class="count">7</div> Key Benefits</li>
 <li><div class="count">8</div> Use cases</li>
 </ul>`;
@@ -223,10 +231,31 @@ chatbox_div.style.display='none';
   //    }
   //  });   
 
+  const fetchquery = (str) =>{
+  //   const formData = new FormData();
+  // formData.append('href', href9);
+  
+  fetch('https://www.wiyse.com/kushagra/newbot/test.json')
+    .then(response => response.json())
+    .then(data => data.forEach(function (element, index) {
+      let query = element.query.q;
+      let finalstr = query.find((s) => s === str);
+      if(finalstr!=undefined){
+        const random = Math.floor(Math.random() * element.query.r.length);
+        const response= element.query.r[random];
+         console.log(random, element.query.r[random]);
+        document.getElementById("response").innerHTML = response;
+        //console.log(element.query.r);
+      }
+      
+    }))
+  }
+
   var techat = document.getElementById("textchat");
   techat.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       let inputValue= techat.value;
+      fetchquery(inputValue);
       event.preventDefault();
       document.getElementById("chatbubble").innerHTML = inputValue;
       let boxAdd = document.getElementById("chat-box").innerHTML;
@@ -237,6 +266,7 @@ chatbox_div.style.display='none';
       bel.classList.remove("bot-popup");
       bel.classList.remove("open");
       bel.classList.add("chat-box");
+      
       bel.innerHTML = boxAdd;
       
       
@@ -273,6 +303,7 @@ chatbox_div.style.display='none';
     if(key == 13)  // the enter key code
      {
       let inputValue= texchat.value;
+      fetchquery(inputValue);
           e.preventDefault();
           document.getElementById("chatbubble").innerHTML = inputValue;
     
@@ -447,32 +478,32 @@ chatbox_div.style.display='none';
   }))
   .catch(error => console.error(error));
   
-//   (async function() {
-//   let intro = await getData();
-//   var box_div = document.createElement('div');
-//   box_div.classList = 'tour-markers';
-//   box_div.id = 'marker';
-//  // console.log(intro);
-// try {
-//   var box_html = `<div class="tour-marker">
-// <div class="hightlight-box"><img src="https://www.wiyse.com/kushagra/newbot/images/highlight-box.png"/></div>
-// <div class="arrow"><img src="https://www.wiyse.com/kushagra/newbot/images/icons/double-arrow.png"/>
-//     <div class="tour-intro">
-//       <h5 class="wiyse-h5">are different category present here</h5>
-//       <img src="https://www.wiyse.com/kushagra/newbot/images/Intro-heading.png"/>
-//       <ul class="modules-list step-1">
-//       ${intro}
-//       </ul>
-//     </div>
-//   </div>
-//   </div>
-// `;
-// box_div.innerHTML = box_html;
-//      sectionEle.appendChild(box_div);
-// } catch (error) {
+  (async function() {
+  let intro = await getData();
+  var box_div = document.createElement('div');
+  box_div.classList = 'tour-markers';
+  box_div.id = 'marker';
+ // console.log(intro);
+try {
+  var box_html = `<div class="tour-marker">
+<div class="hightlight-box"><img src="https://www.wiyse.com/kushagra/newbot/images/highlight-box.png"/></div>
+<div class="arrow"><img src="https://www.wiyse.com/kushagra/newbot/images/icons/double-arrow.png"/>
+    <div class="tour-intro">
+      <h5 class="wiyse-h5">are different category present here</h5>
+      <img src="https://www.wiyse.com/kushagra/newbot/images/Intro-heading.png"/>
+      <ul class="modules-list step-1">
+      ${intro}
+      </ul>
+    </div>
+  </div>
+  </div>
+`;
+box_div.innerHTML = box_html;
+     sectionEle.appendChild(box_div);
+} catch (error) {
 
-// }
-//   })();
+}
+  })();
 
 
 
