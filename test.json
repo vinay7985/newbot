@@ -1,0 +1,7 @@
+[ {"id":1, "location":"1","qtype":"theory", "query": {"q":["what is invoice","describe invoice"],"r":["this is invoice","thuis is invoice 2"]} },
+{"id":2, "location":"2","qtype":"theory", "query": {"q":["what is proposals","describe praposals"],"r":["this is praposals","thuis is praposals 2"]} },
+{"id":3, "location":"3","qtype":"theory", "query": {"q":["what is proposalsee","describe proposals"],"r":["this is praposalseee","thuis is praposals 2"]} },
+{"id":4, "location":"4","qtype":"theory", "query": {"q":["what is estimatces","describe estimacctes","what is mean by estimates"],"r":["this is estimccate Answer","thuis is estimates 2 answer"]} },
+{"id":5, "location":"5","qtype":"showcase", "query": {"q":["What is Sales Module? What can I do with it?"],"r":["this is sales","thuis is sales 2"]} },
+{"id":6, "location":"6","qtype":"showcase", "query": {"q":["What is project Module? What can I do with it?"],"r":["this is project","thuis is project 2"]} },
+{"id":7, "location":"7","qtype":"showcase", "query": {"q":["What is support Module? What can I do with it?"],"r":["this is support","thuis is support 2"]} } ]

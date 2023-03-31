@@ -5,6 +5,15 @@ var audio = new Audio("images/woosh.mp3");
 // $( ".floating-bot .mic .bot-icon" ).on( "click", function() {
 //   alert('hello');
 // });
+$(document).on("click",".sync-icon",function() {
+  removeModules("#tour");
+  removeModules("#player");
+});
+
+$(document).on("click",".player .player-control .play-btn",function() {
+  $(".play-btn").toggleClass("open");
+  
+});
 //$(document).on("click","#test-element",function() {
 //$(".floating-bot .mic .bot-icon").on('click',function(){
   $(document).on("click",".floating-bot .mic .bot-icon",function() {
