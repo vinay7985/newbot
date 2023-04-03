@@ -15,7 +15,7 @@
 }
 
 .pri-bg {
-  background: #0892D0 !important;
+  background: #4bd08b !important;
 }
 
 .sec-bg {
@@ -43,7 +43,7 @@
 }
 
 .pri-color {
-  color: #0892D0 !important;
+  color: #4bd08b !important;
 }
 
 .green-color {
@@ -85,7 +85,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #0892D0;
+  background-color: #4bd08b;
   border-right: none;
   border-left: none;
 }
@@ -174,7 +174,7 @@ section {
   min-width: 160px;
   border-radius: 10px;
   padding: 0 14px;
-  background: #0892D0;
+  background: #4bd08b;
   border: none;
   color: #fff;
 }
@@ -254,7 +254,7 @@ img {
   
   font-family: "Digital-7";
 }
-.add-after-blur{
+/* .add-after-blur{
   position: fixed;
   top: 0;
   left: 0;
@@ -264,9 +264,17 @@ img {
   background: rgba(0, 0, 0, 0.5019607843);
   z-index: 15;
   pointer-events: none;
-}
+} */
 /* .wiyse-main-screen:after {
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: rgba(0, 0, 0, 0.6319607843);
+  z-index: 15;
+  pointer-events: none;
 } */
 .wiyse-main-screen .floating-bot {
   width: 80px;
@@ -276,9 +284,9 @@ img {
   left: 20px;
   bottom: 20px;
   cursor: pointer;
-  box-shadow: 0 0px 10px 5px #0892D0;
-  box-shadow: 0 0px 10px 6px #2c4e3c inset, 0 0px 10px 5px #0892D0;
-  z-index: 2;
+  box-shadow: 0 0px 10px 5px #4bd08b;
+  box-shadow: 0 0px 10px 6px #2c4e3c inset, 0 0px 10px 5px #4bd08b;
+  z-index: 5;
 }
 .wiyse-main-screen .floating-bot .mic {
   width: 70px;
@@ -310,8 +318,8 @@ img {
   display: flex;
 }
 .wiyse-main-screen .floating-bot .mic.active {
-  border: 2px solid #0892D0;
-  box-shadow: 0 0 10px 3px #0892D0;
+  border: 2px solid #4bd08b;
+  box-shadow: 0 0 10px 3px #4bd08b;
 }
 .wiyse-main-screen .floating-bot .mic.active .mic-icon {
   filter: saturate(2);
@@ -322,12 +330,12 @@ img {
   background-color: rgba(0, 0, 0, 0.7019607843);
   position: absolute;
   top: -60px;
-  color: #0892D0;
+  color: #4bd08b;
   cursor: default;
   font-size: 18px;
 }
 .wiyse-main-screen .floating-bot .breadcrumb a {
-  color: #0892D0;
+  color: #4bd08b;
 }
 .wiyse-main-screen .floating-bot .breadcrumb span {
   white-space: nowrap;
@@ -343,30 +351,30 @@ img {
   padding: 10px;
   max-width: 300px;
   width: 100%;
-  border: 1px solid #0892D0;
+  border: 1px solid #4bd08b;
   border-radius: 10px;
   box-shadow: 0 4px 100px 20px rgba(0, 0, 0, 0.32);
   background-color: rgba(0, 0, 0, 0.7019607843);
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   bottom: 9px;
   left: 105px;
 }
 .wiyse-main-screen .chat-box .chat-bubble {
-  border: 1px solid #0892D0;
+  border: 1px solid #4bd08b;
   border-radius: 4px;
   color: #fff;
-  background: rgba(8, 146, 208, 0.231372549);
+  background: rgba(75, 208, 139, 0.231372549);
   font-size: 18px;
   margin-bottom: 10px;
   padding: 4px;
 }
 .wiyse-main-screen .chat-box .chat-input {
-  border-top: 1px solid #0892D0;
+  border-top: 1px solid #4bd08b;
   padding-top: 10px;
 }
 .wiyse-main-screen .chat-box .chat-input input {
-  color: #0892D0;
+  color: #4bd08b;
   background: transparent;
   border: 0;
   font-size: 14px;
@@ -398,7 +406,7 @@ img {
   opacity: 0;
   visibility: hidden;
   transition: 0.4s all ease;
-  border: 2px solid #0892D0;
+  border: 2px solid #4bd08b;
   border-radius: 10px;
   border-left: 0;
 }
@@ -415,18 +423,18 @@ img {
   padding: 0 20px 0 30px;
   border: 0;
   background-color: rgba(0, 0, 0, 0.7019607843);
-  background: linear-gradient(90deg, rgb(8, 146, 208) 0%, rgba(0, 0, 0, 0.6951155462) 14%);
-  color: #0892D0;
+  background: linear-gradient(90deg, rgb(75, 208, 139) 0%, rgba(0, 0, 0, 0.6951155462) 14%);
+  color: #4bd08b;
   font-size: 16px;
   border-radius: 10px;
 }
 .wiyse-main-screen .bot-popup ::-webkit-input-placeholder, .wiyse-main-screen .bot-popup ::placeholder {
-  color: #0892D0;
+  color: #4bd08b;
 }
 .wiyse-main-screen .bot-popup .back-arrow {
   position: absolute;
   cursor: pointer;
-  top: -9px;
+  top: 13px;
 }
 .wiyse-main-screen .text-window {
   display: none;
@@ -434,7 +442,7 @@ img {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px 10px rgba(8, 146, 208, 0.42);
+  box-shadow: 0 0 10px 10px rgba(75, 208, 139, 0.42);
   padding: 20px;
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.8);
@@ -479,9 +487,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0892D0;
+  color: #4bd08b;
   font-size: 26px;
-  border: 1px solid #0892D0;
+  border: 1px solid #4bd08b;
   border-width: 1px 0 1px;
   height: 115px;
   margin-top: 1px;
@@ -491,11 +499,11 @@ img {
 .wiyse-main-screen .text-window .window:after {
   position: absolute;
   content: "";
-  border: 1px solid #0892D0;
+  border: 1px solid #4bd08b;
   border-width: 1px 0 1px;
   width: 100%;
   height: 103px;
-  background: rgba(8, 146, 208, 0.1490196078);
+  background: rgba(75, 208, 139, 0.1490196078);
 }
 .wiyse-main-screen .text-window .window span {
   width: 0;
@@ -551,12 +559,12 @@ img {
   height: 40px;
 }
 .wiyse-main-screen .demo-mode .slider .slick-slide.slick-current {
-  color: #0892D0;
+  color: #4bd08b;
   font-weight: bold;
   transform: scale(1);
 }
 .wiyse-main-screen .demo-mode .slider .slick-slide.slick-current img {
-  filter: brightness(1.8) drop-shadow(0px 0px 5px #0892D0) hue-rotate(28deg);
+  filter: brightness(1.8) drop-shadow(0px 0px 5px #4bd08b) hue-rotate(28deg);
 }
 .wiyse-main-screen .demo-mode .slider .slick-slide:nth-of-type(1) > div {
   padding: 0 0px;
@@ -585,7 +593,7 @@ img {
   content: "";
 }
 .wiyse-main-screen .demo-mode .slider .slick-prev:before, .wiyse-main-screen .demo-mode .slider .slick-next:before {
-  color: #0892D0;
+  color: #4bd08b;
 }
 .wiyse-main-screen .demo-mode .platform {
   text-align: center;
@@ -600,7 +608,7 @@ img {
   width: 100px;
 }
 .wiyse-main-screen .demo-mode .toggle-switch .off {
-  color: #0892D0;
+  color: #4bd08b;
   text-align: right;
   font-weight: bold;
 }
@@ -608,7 +616,7 @@ img {
   width: 40px;
   height: 20px;
   border-radius: 20px;
-  border: 1px solid #0892D0;
+  border: 1px solid #4bd08b;
   position: relative;
   margin: 0 10px;
 }
@@ -617,13 +625,13 @@ img {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: #0892D0;
+  background: #4bd08b;
   top: 1px;
   left: 1px;
   transition: 0.4s all ease;
 }
 .wiyse-main-screen .demo-mode .toggle-switch.on .on {
-  color: #0892D0;
+  color: #4bd08b;
   font-weight: bold;
 }
 .wiyse-main-screen .demo-mode .toggle-switch.on .off {
@@ -641,7 +649,7 @@ img {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #0892D0;
+  background: #4bd08b;
   margin: -13px auto 0;
   white-space: nowrap;
 }
@@ -708,14 +716,14 @@ img {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  box-shadow: 0 0 2px 2px #0892D0 inset;
+  box-shadow: 0 0 2px 2px #4bd08b inset;
 }
 .wiyse-main-screen .tour-marker .marker-dot:after {
   position: absolute;
   top: 11px;
   height: 1px;
   width: 100px;
-  background: #0892D0;
+  background: #4bd08b;
   left: 13px;
 }
 .wiyse-main-screen .tour-marker .marker {
@@ -745,27 +753,32 @@ img {
 }
 .wiyse-main-screen .tour-marker .tour-intro {
   position: absolute;
-  display: none;
-  width: 178px;
+  display: block;
+  width: 0px;
   top: 6px;
   left: 30px;
   background: rgba(0, 0, 0, 0.7490196078);
 }
 .wiyse-main-screen .tour-marker .tour-intro .wiyse-h5 {
-  color: #0892D0;
+  color: #4bd08b;
   position: absolute;
   left: 60px;
   top: 20px;
   margin: 0;
 }
 .wiyse-main-screen .tour-marker .tour-intro .step-1, .wiyse-main-screen .tour-marker .tour-intro .step-2 {
-  display: none;
+  display: block;
   background: rgba(0, 0, 0, 0.7490196078);
 }
 .wiyse-main-screen .tour-marker .tour-intro .step-1 {
-  position: absolute;
-  left: 178px;
-  top: 33px;
+    max-width: 200px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: 2px solid;
+    color: #4bd08b;
+    padding: 10px 10px 5px 10px;
+
 }
 .wiyse-main-screen .tour-marker .tour-intro .step-1 .list {
   margin-left: 96px;
@@ -812,7 +825,7 @@ img {
   position: absolute;
   top: 4px;
   left: 85px;
-  color: #0892D0;
+  color: #4bd08b;
 }
 .wiyse-main-screen .tour-marker .tour-intro .step-2 .list:nth-of-type(1) {
   width: 323px;
@@ -855,13 +868,13 @@ img {
 .wiyse-main-screen .tour-marker ul {
   padding: 0 0px 0 10px;
   width: 250px;
-  border-left: 1px solid #0892D0;
+  border-left: 1px solid #4bd08b;
 }
 .wiyse-main-screen .tour-marker ul li {
   padding-left: 20px;
   padding-right: 30px;
   position: relative;
-  background: #0892D0;
+  background: #4bd08b;
   color: #000;
   margin: 10px 0;
 }
@@ -870,7 +883,7 @@ img {
   left: 0;
   width: 16px;
   border-right: 2px solid #333;
-  background: #0892D0;
+  background: #4bd08b;
   text-align: center;
 }
 .wiyse-main-screen .tour-marker ul li .module-select {
@@ -891,7 +904,7 @@ img {
   height: 6px;
   border-radius: 10px;
   top: 30%;
-  background: #0892D0;
+  background: #4bd08b;
 }
 .wiyse-main-screen .tour-marker ul li .module-select:before {
   position: absolute;
@@ -899,7 +912,7 @@ img {
   width: 10px;
   height: 1px;
   top: 41%;
-  background: #0892D0;
+  background: #4bd08b;
 }
 .wiyse-main-screen .tour-marker ul li:hover > .module-select:after {
   content: "";
@@ -918,13 +931,13 @@ img {
   padding-right: 4px;
 }
 .wiyse-main-screen .tour-marker ul.modules-options li {
-  border: 1px solid #0892D0;
-  color: #0892D0;
+  border: 1px solid #4bd08b;
+  color: #4bd08b;
   background: transparent;
 }
 .wiyse-main-screen .tour-marker ul.modules-options li .count {
   background: transparent;
-  border-color: #0892D0;
+  border-color: #4bd08b;
 }
 .wiyse-main-screen .tour-markers .demo-mode-icons {
   z-index: 2;
@@ -944,7 +957,7 @@ img {
   left: 50%;
   z-index: 2;
   transform: translate(-50%, 0px);
-  color: #0892D0;
+  color: #4bd08b;
   cursor: pointer;
   font-size: 18px;
   text-align: center;
@@ -966,8 +979,8 @@ img {
   right: 20px;
   background: rgba(0, 0, 0, 0);
   border-radius: 10px;
-  color: #0892D0;
-  z-index: 2;
+  color: #4bd08b;
+  z-index: 5;
   height: 224px;
   padding: 20px 40px 20px 20px;
   display: flex;
@@ -986,13 +999,13 @@ img {
 .wiyse-main-screen .deep-tour ul {
   padding: 0 30px 0 10px;
   width: 180px;
-  border-left: 1px solid #0892D0;
+  border-left: 1px solid #4bd08b;
   overflow: auto;
 }
 .wiyse-main-screen .deep-tour ul li {
   padding-left: 20px;
   position: relative;
-  background: #0892D0;
+  background: #4bd08b;
   color: #000;
   margin-bottom: 10px;
 }
@@ -1004,7 +1017,7 @@ img {
   left: 0;
   width: 16px;
   border-right: 2px solid #333;
-  background: #0892D0;
+  background: #4bd08b;
   text-align: center;
 }
 .wiyse-main-screen .deep-tour ul li .module-select {
@@ -1024,7 +1037,7 @@ img {
   height: 6px;
   border-radius: 10px;
   top: 30%;
-  background: #0892D0;
+  background: #4bd08b;
 }
 .wiyse-main-screen .deep-tour ul li .module-select:before {
   content: "";
@@ -1033,37 +1046,38 @@ img {
   width: 10px;
   height: 1px;
   top: 41%;
-  background: #0892D0;
+  background: #4bd08b;
 }
 .wiyse-main-screen .deep-tour ul.modules-options {
   margin-top: 24px;
   padding-right: 4px;
   background: rgba(0, 0, 0, 0.7490196078);
   border-radius: 6px;
+  border: 1px solid #4bd08b;
 }
 .wiyse-main-screen .deep-tour ul.modules-options li {
-  border: 1px solid #0892D0;
-  color: #0892D0;
+  border: 1px solid #4bd08b;
+  color: #4bd08b;
   background: transparent;
 }
 .wiyse-main-screen .deep-tour ul.modules-options li .count {
   background: transparent;
-  border-color: #0892D0;
+  border-color: #4bd08b;
 }
 .wiyse-main-screen .player {
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: 40px;
+  bottom: 6px;
 }
 .wiyse-main-screen .player .breadcrumb {
   display: flex;
   padding: 4px;
   background-color: rgba(0, 0, 0, 0.7019607843);
   position: fixed;
-  top: -60px;
-  color: #0892D0;
+  top: -78px;
+  color: #4bd08b;
   cursor: default;
   font-size: 18px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -1071,9 +1085,10 @@ img {
   transform: translate(-50%, 0px);
   max-width: 550px;
   width: 400px;
+  border: 1px solid #4bd08b;
 }
 .wiyse-main-screen .player .breadcrumb a {
-  color: #0892D0;
+  color: #4bd08b;
 }
 .wiyse-main-screen .player .breadcrumb span {
   white-space: wrap;
@@ -1089,6 +1104,7 @@ img {
   background-color: rgba(0, 0, 0, 0.7019607843);
   align-items: center;
   border-radius:6px;
+  border: 1px solid #4bd08b;
 }
 .wiyse-main-screen .player .player-control img {
   height: 17px;
@@ -1098,7 +1114,7 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: url(../images/playcircle.png);
+  background: url(../images/icons/playcircle.png);
   background-size: cover;
   display: flex;
   align-items: center;
@@ -1141,7 +1157,7 @@ img {
 }
 .wiyse-main-screen .tour-marker .circle-count span {
   position: absolute;
-  color: #0892D0;
+  color: #4bd08b;
   top: 2px;
   left: 79%;
   font-size: small;
@@ -1175,7 +1191,7 @@ img {
 }
 .wiyse-main-screen .tour-marker .rect-box span {
   position: absolute;
-  color: #0892D0;
+  color: #4bd08b;
   top: -1px;
   left: 40%;
   font-size: small;
@@ -1241,7 +1257,7 @@ img {
   right: 0;
   cursor: pointer;
   background: rgba(0, 0, 0, 0.7490196078);
-  color: #0892D0;
+  color: #4bd08b;
   padding: 2px;
   font-size: 20px;
   top: -5px;
@@ -1271,6 +1287,21 @@ img {
 }/*# sourceMappingURL=style.css.map */
 
 .green-highlite{
-  background: #0892D0 !important;
+  background: #4bd08b !important;
     color: #000 !important;
+}
+.ractangle{ 
+  background-color:rgba(0, 0, 0, 0.7019607843);
+    border: 2px solid rgb(75, 208, 139);
+    width: 200%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.option{
+  color: #4bd08b;
+   font-size: 14px;
+    font-weight: bold;
+     text-align: center; 
+     
 }
