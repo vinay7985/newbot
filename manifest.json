@@ -1,0 +1,45 @@
+{
+    "name": "Wiyse",
+    "description": "Inject JavaScript And CSS Website.",
+    "version": "0.0.0.1",
+    "manifest_version": 3,
+    "content_security_policy": {
+        "extension_pages": "default-src 'self'"
+      },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.wiyse.com/*",
+                "https://*.hubspot.com/*",
+                "https://suite8demo.suiteondemand.com/*",
+                "https://*.zoho.com/*"
+            ],
+            "run_at": "document_idle",
+            "js": [
+                "jquery.min.js",
+                "dist/jquery.contextMenu.js",
+                "dist/jquery.ui.position.min.js",
+                "app.js",
+                "scriptb.js",
+                "wiyse.script.js",
+                "jquery.function.js"
+                
+            ]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "scripting"
+      ],
+      "background": {
+        "service_worker": "background.js"
+      },
+    "icons":{
+        "16":"images/icon_16.png",
+        "32":"images/icon_32.png",
+        "48":"images/icon_48.png"
+      },
+      "action": {
+        "default_popup":"popup.html"
+      }
+}
