@@ -490,6 +490,7 @@ function stopCapturing(e,boll,id) {
   enableHighlighter = boll == false ? true: false;
 }
 function markStep(el) {
+ 
   let selectBox = $("#select-box");
   const href = window.location.pathname+window.location.search;
   const selectPath = selectBox.attr("wiyse-select-path");
@@ -508,18 +509,27 @@ function markStep(el) {
     });
   
  return false;
+}
 
-  // let tab_id = document.getElementById("select-box").getAttribute('tab-id');
-  // $.ajax({url: "http://65.2.130.45/clynts/api/functionalities/step_timeline_step_body/"+tab_id, 
-  //        success: function(result) {
-  //         if(result){
-  //           $("#step-body").html(result);
-  //           $("#markStep").modal('show');
-  //         }
-  //         else{
-  //             $("#step-timeline").html(result);
-  //         }
-  //     }});
+function markStepSpacebar(el) {
+  let selectBox = $("#select-box");
+  const href = window.location.pathname+window.location.search;
+  const selectPath = getXPathForElement(document.querySelector(".highlighted"));
+  let text = $(".highlighted").text();
+  text = text.trim();
+  text=text.replace(/^\s+|\s+$/gm,'');
+      const tabId  = $("#aside2-funda-content").attr("tab-id");
+      const html = getElementByXPath(selectPath).innerHTML;
+      const data = {tab_id:tabId,select_path:selectPath,mark_value:el,url:href,html:html,text:text};
+      $.post(apiBase+'functionalities/save_mark_step/', data, function(returnedData) {
+        // do something here with the returnedData
+        if(returnedData){
+          $('[class="sub-tab-list active"]').trigger("click");
+          alert(returnedData);
+        }
+    });
+  
+ return false;
 }
 
 function viewMarkStep(id){
@@ -671,6 +681,12 @@ function getElementByXPath(path) {
                       XPathResult.FIRST_ORDERED_NODE_TYPE, null) 
       .singleNodeValue; 
 } 
+function getElementByXPathIframe(path,documentEle) { 
+  return (new XPathEvaluator()) 
+      .evaluate(path, documentEle.documentElement, null, 
+                      XPathResult.FIRST_ORDERED_NODE_TYPE, null) 
+      .singleNodeValue; 
+} 
 
 
 var generateQuerySelector = function(el) {
@@ -777,13 +793,36 @@ function saveStepTitle(slug,id) {
 
   function addHighlight(target) {
       target.classList.add('highlighted');
-      
+      const element = document.getElementsByClassName("highlighted");
+      const rect = element[0].getBoundingClientRect();
+      addHighlighterContents(rect);
   }
-
+  
     function removeHighlight(target) {
         target.classList.remove('highlighted');
-      
+        const ele =document.getElementById("wiyse-high-content")
+        ele.style.display ="none"
     }
+    function addHighlighterContents(rect) {
+      const ele =document.getElementById("wiyse-high-content");
+      if (rect.top<5) {
+        rect.top =44;
+      }
+      ele.style.display ="block";
+      ele.style.position ="absolute";
+      ele.style.background  ="#2879ff";
+      ele.style.top = rect.top-11+'px';
+      ele.style.left = rect.left+'px';
+      ele.style.color = "#fff";
+      ele.style.border ="1px solid";
+      ele.style.padding ="1px";
+      ele.style.borderRadius  = "5px";
+  }
+  function removeAddHighlighterContents() {
+    const ele =document.getElementById("wiyse-high-content")
+        ele.innerHTML='';
+        ele.style.display ="none"
+  }
     function setEleAttribute(e,attr,v){
          const cAttr= document.createAttribute(attr);
          cAttr.value = v;
@@ -907,6 +946,13 @@ function addSelectBox(box) {
   let data = "display:block; top: "+getOffsetTop(box)+"px; width: "+domRect.width+"px; left: "+domRect.left+"px; height:"+domRect.height+"px;";
   document.getElementById("select-box").style.cssText = data;
 }
+function addSelectBoxIframe(box, iframe) {
+  const domRect = box.getBoundingClientRect();
+  const frameRect = iframe.getBoundingClientRect();
+  const lf = parseFloat(domRect.left)+parseFloat(frameRect.left);
+  let data = "display:block; top: "+getOffsetTop(box)+"px; width: "+domRect.width+"px; left: "+lf+"px; height:"+domRect.height+"px;";
+  document.getElementById("select-box").style.cssText = data;
+}
 $(document).on('click','#remove-btn',function(){
   $('#pause').click();
   let data = "display:none; top: 0px; width: 0px; left: 0px; height:0px;";
@@ -933,7 +979,7 @@ $(document).on('click','#pause',function(){
 });
 $(document).on('click','.fundaplay',function(e){
   $(this).hide(); $('#pause').show(); 
-  startFirstStep(4);
+  //startFirstStep(4);
   enableHighlighter=true;
   e.preventDefault();
  
@@ -1065,10 +1111,12 @@ function load_select_tab(tabId){
     $("#content_popup").remove();
     
     if (mainTabId == 1) {
+      updateKeypressStack("fundamentals");
       url = apiBase+"fundamentals/tabs_content_html";
       capture = true;
       startFirstStep(0);
     }else{
+      updateKeypressStack("functionalities");
       url = apiBase+"functionalities/tabs_content_html";
     }
     $.post(url, 
@@ -1123,6 +1171,7 @@ function load_select_tab(tabId){
 //  }
 
 $(document).on('click','#plus',function(){
+  removeAddHighlighterContents();
   startFirstStep(4); $('#pause').show(); enableHighlighter=true;
 });
 
@@ -1188,17 +1237,18 @@ $(document).on('click','.a2-content-tab',function(){
 
 $(document).on('click','.show-functionalities-tab-data',function(){
   const id= $(this).attr("tab-id");
+  $(".s").hide();
   $.post(apiBase+"functionalities/get_tab_data", 
   { id: id }, function(result){
     if(result){
       $("#content_popup").html(result);
-      if (enableHighlighter===true) {
-       $("#play").hide();
-       $("#pause").show();
-     }else{
-       $("#play").show();
-       $("#pause").hide();
-     }
+    //   if (enableHighlighter===true) {
+    //    $("#play").hide();
+    //    $("#pause").show();
+    //  }else{
+    //    $("#play").show();
+    //    $("#pause").hide();
+    //  }
       let el = document.getElementById("aside2-funda-content");
       setEleAttribute(el,'tab-id',id);
     }
@@ -1241,6 +1291,7 @@ function backToTab(e,id){
   { id: mainid, module_id: module_id }, function(result){
     if(result){
       $("#content_popup").html(result);
+      $("#aside2-funda").attr("tab-id",mainid);
       startFirstStep(4);
       if (enableHighlighter===true) {
         $("#play").hide();
@@ -1331,7 +1382,10 @@ function startFirstStep(step){
          $("#play").hide();
          enableHighlighter=true;
          $("#pause").show();
-         const asid = $("#aside2-funda").attr("tab-id");
+         let asid = $("#aside2-funda").attr("tab-id");
+         if (asid==undefined) {
+          asid = $("#content_popup").attr("mainid");
+         }
          if (step == 4) {
           update_mark_text("#add-tab-functionality",asid);
          }
@@ -1343,8 +1397,6 @@ function startFirstStep(step){
 }
 
 function update_mark_text(selector, id) {
-  console.log(id);
-  console.log("hello");
   const obj = {1:"Concept",2:"Feature", 3:"Capability",
   4:"Action", 5:"Workflow",6:"Dashboard",7:"Report",8:"Setup",9:"Manage"};
   $(selector).html("Mark as "+obj[id]);
@@ -1380,9 +1432,17 @@ async function addContentStep(e,step,id,f){
       
   }); 
 }
+function _xframe(STR_XPATH,doc) {
+  var xresult = document.evaluate(STR_XPATH, doc, null, XPathResult.ANY_TYPE, null);
+  var xnodes = [];
+  var xres;
+  while (xres = xresult.iterateNext()) {
+      xnodes.push(xres);
+  }
 
+  return xnodes;
+}
 $(document).on('click','.add-content-step',async function(e){
-  
   const step = $(this).attr("step");
   const id = $(this).attr("select-id");
   const f = $(this).attr("s-type");
@@ -1399,7 +1459,43 @@ $(document).on('click','.add-content-step',async function(e){
   const xpath = $(this).attr("xpath");
   let elem = getElementByXPath(xpath);
   if (elem===null) {
-    alert('Not found on this page');
+    var iframe = document.getElementById('object-builder-ui');
+    if (iframe) { // Check that the iframe exists
+      // Get the content document of the iframe
+      var iframeDoc = iframe.contentWindow.document;
+      // Call the _xframe() function with the XPath expression and content document
+      var xnodes = _xframe(xpath, iframeDoc);
+    
+      // Check that xnodes is not empty before trying to get the bounding rectangle
+      if (xnodes.length > 0) {
+        
+        //xnodes[0].scrollIntoView();
+        var rect = xnodes[0].getBoundingClientRect();
+        var ifr= iframe.getBoundingClientRect();
+        addSelectBoxIframe(xnodes[0],iframe);
+        console.log(rect, ifr);
+        // Do something with rect
+      }
+    }else{
+        alert('Not found on this page');
+      return false;
+    }
+
+
+
+
+
+    
+    // if (elem===null) {
+    //   console.log(elem);
+    //   alert('Not found on this page');
+    //   return false;
+    // }else{
+    //   let iframSelec=elem;
+    //   console.log(iframSelec);
+    //   //addSelectBox(iframSelec);
+    // }
+    
   }else{
     addSelectBox(elem);
   }
@@ -1433,7 +1529,6 @@ $(document).on('click','.tab-step-add-content',async function(e){
   enableHighlighter=false;
   $("#select-box").attr("click-id",id);
   const xpath = $(this).attr("xpath");
-  
   let elem = getElementByXPath(xpath);
   if (elem===null) {
     alert('Not found on this page');
@@ -1448,7 +1543,6 @@ $(document).on('click','.tab-step-add-content',async function(e){
         //   $("#select-box-hidden").val('description');
         //   $("#select-box-text_area").val(obj.description);
       }
-      
   }); 
 });
 
@@ -1481,8 +1575,7 @@ $(document).on('click','.wiyse-add-content',async function(e){
 
 async function addModuleContentStep(e,step,id){
   let response;
-  
-    response = await getModuleStepDataById(id);
+  response = await getModuleStepDataById(id);
   const obj = JSON.parse(response);
   enableHighlighter=false;
   $("#select-box").attr("click-id",id);
@@ -1580,7 +1673,9 @@ function markStepFunc(el) {
 // }
 
 $(document).on('click','#add-functionalities-category',async function(e){
+  removeAddHighlighterContents();
   startFirstStep(4);
+  $(".fundaplay").hide();
 });
 
 $(document).on('click','#add-tab-functionality',async function(e){
@@ -1597,7 +1692,7 @@ $(document).on('click','#add-tab-functionality',async function(e){
   sdata, function(result){
     if(result>0){
       alert('Added Successfully!');
-      backToTab(1,1);
+      backToTab(1,mainTabId);
     }else{
       alert('You have already marked this step as start');
     }
@@ -1615,19 +1710,41 @@ function getAnchorHref(element) {
       if (element.hasChildNodes()) {
       let n = element.childNodes[i].nodeName;
       let el = element.childNodes[i];
-      console.log(n);
        if(n==='A'){
           if (el.hasAttribute("href")) {
                 href = el.getAttribute("href");
              }
        }
-      
-      
     }
   }
 }
   return href;
- 
+}
+function getModuleUrl(element) {
+  let href='';
+  let div = 0;
+  if (element.hasAttribute("wiyse-href")) {
+    href = element.getAttribute("wiyse-href");
+    return href;
+  }
+  else if (element.childNodes.length>0) {
+    for(let i=0; i<element.childNodes.length; i++){
+      if (element.hasChildNodes()) {
+      let n = element.childNodes[i].nodeName;
+      let el = element.childNodes[i];
+       if(n==='A'){
+          if (el.hasAttribute("href")) {
+                href = el.getAttribute("href");
+                return href;
+             }
+       }
+    }
+  }
+  }else{
+    href = element.getAttribute("href");
+    return href;
+}
+  
 }
 async function markModuleTitle(){
   alert('hello');
@@ -1964,8 +2081,13 @@ $(document).on('click','#save_content',function(){
   const sid = $("#select-box").attr("click-id");
   const field = $("#select-box-hidden").val();
   const text = $("#select-box-text_area").val();
+  if (text=='') {
+    alert("Error: field can not be empty.");
+    return false;
+  }
+  const qtype = $("#funda_question").val();
     $.post(apiBase+"fundamentals/save_content", 
-    { id: sid ,field: field, text: text }, function(result){
+    { id: sid ,field: field, text: text, qtype: qtype }, function(result){
       if(result){
          alert(result);
       }
@@ -1991,6 +2113,10 @@ $(document).on('click','[btn-id=save_content_module]',function(){
   const sid = $("#select-box").attr("click-id");
   const titlee = $('#text_kol').val();
   const text = $("#select-box-text_area").val();
+  if (text=='') {
+    alert("Error: field can not be empty.");
+    return false;
+  }
     $.post(apiBase+"fundamentals/add_configure_title_module", 
     { id: sid ,title: titlee, text: text }, function(result){
       if(result){
@@ -2032,11 +2158,40 @@ async function getCaptureCustomConfig(id,index) {
     $("#select-box-hidden").val(id);
     $("#select-box-text_area").val(textvalue);
 }
+
+async function getCaptureCustomConfigFunct(id,index) {
+  const sid = $("#select-box").attr("click-id");
+  $("#select-box-h").addClass("flex");
+  $("[btn-id=save_content2]").attr("id","save_content");
+  $("#save_content2").removeAttr("btn-id");
+  let resStep = await getStepDataById2(sid);
+  const objStep = JSON.parse(resStep);
+  let textvalue = '';
+  let str ='';
+  if (objStep.custom_config!=null) {
+    const objConfigure = JSON.parse(objStep.custom_config);
+    if (objConfigure[index]!=undefined) {
+      textvalue = objConfigure[index].r;
+      str = objConfigure[index].q;
+    }
+  }
+    let obm= `<h5> ${str}</h5>`;
+    $("#select-box-h").html(obm);
+    $("#select-box-hidden").val(id);
+    $("#select-box-text_area").val(textvalue);
+}
+
+
+
 $(document).on('click','[btn-id=save_content]',function(){
   let module_id = $("#load-main-module").attr("module-id");
   const sid = $("#select-box").attr("click-id");
   const title = $('#text_kol').val();
   const text = $("#select-box-text_area").val();
+  if (text=='') {
+    alert("Error: field can not be empty.");
+    return false;
+  }
   if (title=='' || text=='') {
     alert('value required');
     return false;
@@ -2074,10 +2229,15 @@ $(document).on('click','[btn-id=save_content2]',function(){
 
 $(document).on('click','#save_content2',function(){
   const sid = $("#select-box").attr("click-id");
+  const qtype = $("#funda_question").val();
    const field = $("#select-box-hidden").val();
     const text = $("#select-box-text_area").val();
+    if (text=='') {
+      alert("Error: field can not be empty.");
+      return false;
+    }
     $.post(apiBase+"functionalities/save_content", 
-    { id: sid ,field: field, text: text }, function(result){
+    { id: sid ,field: field, text: text, qtype:qtype }, function(result){
       if(result){
          alert(result);
       }
@@ -2089,6 +2249,10 @@ $(document).on('click','#save_content_module',function(){
   const sid = $("#select-box").attr("click-id");
    const field = $("#select-box-hidden").val();
     const text = $("#select-box-text_area").val();
+    if (text=='') {
+      alert("Error: field can not be empty.");
+      return false;
+    }
     $.post(apiBase+"fundamentals/save_content_module", 
     { id: sid ,field: field, text: text }, function(result){
       if(result){

@@ -15,6 +15,9 @@
                 "https://*.zoho.com/*"
             ],
             "run_at": "document_idle",
+            "css":[
+              "styleb.css"
+            ],
             "js": [
                 "jquery.min.js",
                 "dist/jquery.contextMenu.js",
@@ -24,7 +27,9 @@
                 "wiyse.script.js",
                 "jquery.function.js"
                 
-            ]
+            ],
+
+            "all_frames":true
         }
     ],
     "permissions": [

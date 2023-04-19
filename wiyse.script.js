@@ -81,6 +81,7 @@ $(document).on('click','.vaction',async function(){
 
 $(document).on('click','.add-tabs-module',async function(){
  $("#stack").val(0);
+ updateKeypressStack("module");
  startFirstStep(7); 
  
  $('#pause-li').show(); 
@@ -89,6 +90,7 @@ $(document).on('click','.add-tabs-module',async function(){
 
 $(document).on('click','.mark-sub-module',async function(e){
   let id = $(this).attr("sub-id");
+  updateKeypressStack("submodule");
    $("#stack").val(id);
  startFirstStep(8); 
  $('#pause-li').show(); 
@@ -168,7 +170,7 @@ $(document).on('click','#main_tabs_ul',async function(){
      <div id="f-${obj[i].id}" module-id="${obj[i].id}"  class="click-main-module-list ${obj[i].nav_link==href?'green-color':''}"> ${obj[i].title}</div>
      <div class="buttons">     
        <a class="delete-btn" xpath="#" href="javascript:;" onclick="markSubModule(${obj[i].id});" title="Add section"><i class="fa-solid fa-plus green-color"></i> sub &nbsp</a>
-       <a class="delete-btn" xpath='${obj[i].xpath}' href="javascript:;" onclick="addModuleContentStep(this,9,${obj[i].id});" title="Add Sub Module"><i class="fa-solid fa-plus green-color"></i> content &nbsp </a>
+       <a class="delete-btn wiyse-add-content" xpath='${obj[i].xpath}' href="javascript:;" sub-id="${obj[i].id}"  title="Add Sub Module"><i class="fa-solid fa-plus green-color"></i> content &nbsp </a>
        <a class="delete-btn delete-module" tab-id="${obj[i].id}" href="javascript:;" title="delete" ><i class="fa fa-trash red-color"></i></a>
      </div>
  </div>
@@ -405,7 +407,7 @@ $(document).on('click','.click-main-module-list',async function(e){
  $("#main_tabs_ul").html(html);
  $("#main_module_ul").addClass("hide");
  $("#load-fundamentals").click();
- 
+ enableHighlighter=false;
 });
 
 // async function clickMainModuleList(id) {
@@ -428,6 +430,7 @@ $(document).on('click','#click_back_module',async function(e){
   $("#fundamentals_section").addClass("hide");
   $("#main_tabs_ul").html(html);
   $("#main_module_ul").removeClass("hide");
+  enableHighlighter=false;
 });
 
 // function clickBackToModule(){
@@ -517,60 +520,176 @@ function addFreeTextFunda(id){
 //   })    
 // });
 
-
 $(document).on("keypress",function(e) {
-//console.log(texchat);
-  var key = e.which;
-  if (enableHighlighter) {
-
-    if(key == 13)  // the enter key code
-   {
-    const mainTabId = $("#content_popup").attr("mainid");
-    if (mainTabId!=1) {
-      let selectBox = $("#select-box");
-      const href = window.location.pathname+window.location.search;
-      const selectPath = getXPathForElement(document.querySelector(".highlighted"));
-      let text = $(".highlighted").text();
-      const module_id = $("#load-main-module").attr("module-id");
-      text = text.trim();
-      text=text.replace(/^\s+|\s+$/gm,'');
-      const sdata= {main_tab_id:mainTabId, module_id: module_id, url: href, name:text, xpath: selectPath};
-      $.post(apiBase+"functionalities/add_tab_title", 
-      sdata, function(result){
-        if(result>0){
-          alert('Added Successfully!');
-          backToTab(1,1);
-        }else{
-          alert('You have already marked this step as start');
-        }
-    });
-    }
-    else{
-      let text = $(".highlighted").text();
-  const tabId  = $('#aside2-funda').attr("tab-id");
-  const href = window.location.pathname+window.location.search;
-  const module_id = $("#load-main-module").attr("module-id");
-  const description = $("#funda-description").val();
-  const selectPath = getXPathForElement(document.querySelector(".highlighted"));
-  text = text.trim();
-  text=text.replace(/^\s+|\s+$/gm,'');
-        e.preventDefault();
-
-        const data = {main_tab_id:tabId, module_id: module_id, xpath:selectPath,description:'',url:href,name:text};
-        console.log(data);
-          $.post(apiBase+'fundamentals/save_mark_funda', data, function(returnedData) {
-            // do something here with the returnedData
-            if(returnedData){
-              // console.log(returnedData);
-              alert(returnedData);
-              $('[class="a2-content-tab active"]').trigger("click");
-              
+  //console.log(texchat);
+    var key = e.which;
+    if (enableHighlighter) {
+    if(key == 32)  // the spacebar key code
+     {
+      let steps = $("#main_tabs_ul").attr("steps-type");
+        if (steps==="module" || steps==="submodule") {
+          let selectBox = $("#select-box");
+            let is_parent = 1;
+            let parent_id = $("#stack").val();
+            
+            if (parent_id!=0) {
+              is_parent=0;
             }
-        });
+            const href = window.location.pathname+window.location.search;
+            const selectPath = getXPathForElement(document.querySelector(".highlighted"));
+            let text = $(".highlighted").text();
+            let nav = getModuleUrl(getElementByXPath(selectPath));
+            nav = nav.replace(/^.*\/\/[^\/]+/, '');
+            
+            console.log(nav);
+            text = text.trim();
+            text=text.replace(/^\s+|\s+$/gm,'');
+            const sdata= {title:text, xpath: selectPath, nav_link: nav, status:1, is_parent:is_parent, parent_id:parent_id};
+            $.post(apiBase+"fundamentals/add_module_data", 
+            sdata, function(result){
+              if(result>0){
+                $("#main_tabs_ul").click();
+              }else{
+                alert('something went wrong');
+              }
+          });
+        } else if (steps==="functstep") {
+              var attr = $("#aside2-funda").attr("funct-step");
+            if (typeof attr !== 'undefined' && attr !== false) {
+              attr = parseInt(attr);
+              if (attr==1) {
+                markStepSpacebar('s');
+              }else if (attr==2) {
+                markStepSpacebar('m');
+              }else{
+                markStepSpacebar('e');
+              }
+            }
+        }
+        else if ( steps==="functionalities" ) {
+          const mainTabId = $("#content_popup").attr("mainid");
+          if (mainTabId!=1) {
+            let selectBox = $("#select-box");
+            const href = window.location.pathname+window.location.search;
+            const selectPath = getXPathForElement(document.querySelector(".highlighted"));
+            let text = $(".highlighted").text();
+            const module_id = $("#load-main-module").attr("module-id");
+            text = text.trim();
+            text=text.replace(/^\s+|\s+$/gm,'');
+            const sdata= {main_tab_id:mainTabId, module_id: module_id, url: href, name:text, xpath: selectPath};
+            $.post(apiBase+"functionalities/add_tab_title", 
+            sdata, function(result){
+              if(result>0){
+                alert('Added Successfully!');
+                backToTab(1,1);
+              }else{
+                alert('You have already marked this step as start');
+              }
+           });
+          }
+        }
+        else if (steps==="fundamentals") {
+        let text = $(".highlighted").text();
+        const tabId  = $('#aside2-funda').attr("tab-id");
+        const href = window.location.pathname+window.location.search;
+        const module_id = $("#load-main-module").attr("module-id");
+        const description = $("#funda-description").val();
+        const selectPath = getXPathForElement(document.querySelector(".highlighted"));
+        text = text.trim();
+        text=text.replace(/^\s+|\s+$/gm,'');
+              e.preventDefault();
+      
+              const data = {main_tab_id:tabId, module_id: module_id, xpath:selectPath,description:'',url:href,name:text};
+              console.log(data);
+                $.post(apiBase+'fundamentals/save_mark_funda', data, function(returnedData) {
+                  // do something here with the returnedData
+                  if(returnedData){
+                    // console.log(returnedData);
+                    alert(returnedData);
+                    $('[class="a2-content-tab active"]').trigger("click");
+                    
+                  }
+              });
+          }
+        
+       
+     }
+     return false;
     }
+  });
+
+
+
+
+
+
+
+// $(document).on("keypress",function(e) {
+// //console.log(texchat);
+//   var key = e.which;
+//   if (enableHighlighter) {
+//     //console.log(key);
+//     if(key == 32)  // the enter key code
+//    {
+//     var attr = $("#aside2-funda").attr("funct-step");
+    
+//     if (typeof attr !== 'undefined' && attr !== false) {
+//       attr = parseInt(attr);
+//       if (attr==1) {
+//         markStepSpacebar('s');
+//       }else if (attr==2) {
+//         markStepSpacebar('m');
+//       }else{
+//         markStepSpacebar('e');
+//       }
+       
+//     }else{
+//     const mainTabId = $("#content_popup").attr("mainid");
+//     if (mainTabId!=1) {
+//       let selectBox = $("#select-box");
+//       const href = window.location.pathname+window.location.search;
+//       const selectPath = getXPathForElement(document.querySelector(".highlighted"));
+//       let text = $(".highlighted").text();
+//       const module_id = $("#load-main-module").attr("module-id");
+//       text = text.trim();
+//       text=text.replace(/^\s+|\s+$/gm,'');
+//       const sdata= {main_tab_id:mainTabId, module_id: module_id, url: href, name:text, xpath: selectPath};
+//       $.post(apiBase+"functionalities/add_tab_title", 
+//       sdata, function(result){
+//         if(result>0){
+//           alert('Added Successfully!');
+//           backToTab(1,1);
+//         }else{
+//           alert('You have already marked this step as start');
+//         }
+//     });
+//     }
+//     else{
+//   let text = $(".highlighted").text();
+//   const tabId  = $('#aside2-funda').attr("tab-id");
+//   const href = window.location.pathname+window.location.search;
+//   const module_id = $("#load-main-module").attr("module-id");
+//   const description = $("#funda-description").val();
+//   const selectPath = getXPathForElement(document.querySelector(".highlighted"));
+//   text = text.trim();
+//   text=text.replace(/^\s+|\s+$/gm,'');
+//         e.preventDefault();
+
+//         const data = {main_tab_id:tabId, module_id: module_id, xpath:selectPath,description:'',url:href,name:text};
+//         console.log(data);
+//           $.post(apiBase+'fundamentals/save_mark_funda', data, function(returnedData) {
+//             // do something here with the returnedData
+//             if(returnedData){
+//               // console.log(returnedData);
+//               alert(returnedData);
+//               $('[class="a2-content-tab active"]').trigger("click");
+              
+//             }
+//         });
+//     }
+//   }
+//      return false;  
+//    }
+//   }
   
-     return false;  
-   }
-  }
-  
-});
+// });

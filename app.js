@@ -17,34 +17,36 @@ function Create_Custom_Element(tag, attr_tag, attr_name, value) {
 }
 
 // JS Codes For youtube.com
-if (site.includes("suite8demo.suiteondemand.com") || site.includes("hubspot.com")) {
+if (site.includes("zoho.com") || site.includes("hubspot.com")) {
     /* -------------- */
     /* Add Custom CSS */
     /* -------------- */
-    
+  Create_Custom_Element('div', 'id','wiyse-high-content',`
+ 
+`);  
   
     
 
   Create_Custom_Element('div','class','dy', `
 <section class="main-screen" id="main-screen">
   <aside class="side-bar open">
-    <ul class="menu">
+    <ul class="wul menu">
       <li class="active">Capture</li>
       <li><a href="#">Preview</a></li>
       <li class="maximize-btn"><i class="fa-solid fa-angle-up"></i></li>
     </ul>
     <div class="capture-section">
-            <ul class="main-tabs" id="main_tabs_ul">
+            <ul class="wul main-tabs" id="main_tabs_ul">
               <li class="top-tab active" id="load-main-module"><i class="fa-solid fa-setting"></i> <a href="javascript:;" id="main"></a>Main Module</a></li>
               <li class="add-tabs-module"><i class="fa-solid fa-circle-plus"></i></li>
            </ul>
             <input type="hidden" id="stack" name="" value="">
-            <ul class="group-list" id="main_module_ul" style="margin:20px;">
+            <ul class="wul group-list" id="main_module_ul" style="margin:20px;">
                   
             </ul>
 
 
-      <ul class="main-tabs hide" id="main-tabs-id" style="display:none">
+      <ul class="wul main-tabs hide" id="main-tabs-id" style="display:none">
         <li class="top-tab active"  id="load-fundamentals"><i class="fa-solid fa-shapes"></i> <a href="javascript:;" id="fundamentals"></a>Fundamentals</a></li>
         <li class="top-tab" id="load-functionalities" ><i class="fa-solid fa-gears"></i> <a href="javascript:;" id="functionalities">Functionalities</a></li>
         <li class="top-tab" onclick="loadKnowledgeBase(this)"><i class="fa-solid fa-database"></i> <a href="javascript:;" id="knowledge-base">Knowledge Base</a></li>
@@ -339,7 +341,6 @@ if (site.includes("suite8demo.suiteondemand.com") || site.includes("hubspot.com"
     
     Add_Custom_Style(`
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
-        @import url("https://www.wiyse.com/hubspot/wiyse/css/styleb.css");
         @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
         @import url("chrome-extension://cdikpkphlafjeclnokahecpipkggioko/dist/jquery.contextMenu.min.css");
      `)
